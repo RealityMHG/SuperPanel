@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Autoridade Tributária - Ponto de Situação</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <div class="logo-icon">
+              <i class="fas fa-landmark"></i>
+            </div>
+            <div class="logo-text">Autoridade Tributária</div>
+          </div>
+          <div class="header-right">
+            <div class="folder-icon">
+              <i class="fas fa-folder"></i>
+            </div>
+            <div class="notification-dropdown">
+              <div class="notification-trigger">
+                <i class="fas fa-bell"></i>
+                <span class="notification-badge">3</span>
+              </div>
+              <div class="notification-menu">
+                <div class="notification-header">
+                  <h3>Notificações</h3>
+                  <span class="notification-count">3 novas</span>
+                </div>
+                <div class="notification-list">
+                  <div class="notification-item unread">
+                    <div class="notification-icon">
+                      <i class="fas fa-file-circle-plus"></i>
+                    </div>
+                    <div class="notification-content">
+                      <div class="notification-title">
+                        Novo documento adicionado
+                      </div>
+                      <div class="notification-details">
+                        <span class="nif">NIF: 517466735</span>
+                        <span class="time">Hoje, 14:30</span>
+                      </div>
+                      <div class="notification-description">
+                        Declaração de IVA do 1º trimestre
+                      </div>
+                    </div>
+                  </div>
+                  <div class="notification-item unread">
+                    <div class="notification-icon">
+                      <i class="fas fa-file-pen"></i>
+                    </div>
+                    <div class="notification-content">
+                      <div class="notification-title">Documento modificado</div>
+                      <div class="notification-details">
+                        <span class="nif">NIF: 516298451</span>
+                        <span class="time">Hoje, 11:15</span>
+                      </div>
+                      <div class="notification-description">
+                        Demonstração de resultados atualizada
+                      </div>
+                    </div>
+                  </div>
+                  <div class="notification-item unread">
+                    <div class="notification-icon">
+                      <i class="fas fa-file-circle-plus"></i>
+                    </div>
+                    <div class="notification-content">
+                      <div class="notification-title">
+                        Novo documento adicionado
+                      </div>
+                      <div class="notification-details">
+                        <span class="nif">NIF: 217745163</span>
+                        <span class="time">Ontem, 16:45</span>
+                      </div>
+                      <div class="notification-description">
+                        Recibos verdes do mês anterior
+                      </div>
+                    </div>
+                  </div>
+                  <div class="notification-item">
+                    <div class="notification-icon">
+                      <i class="fas fa-file-pen"></i>
+                    </div>
+                    <div class="notification-content">
+                      <div class="notification-title">Documento modificado</div>
+                      <div class="notification-details">
+                        <span class="nif">NIF: 512587963</span>
+                        <span class="time">Ontem, 14:20</span>
+                      </div>
+                      <div class="notification-description">
+                        Ficha de trabalho atualizada
+                      </div>
+                    </div>
+                  </div>
+                  <div class="notification-item">
+                    <div class="notification-icon">
+                      <i class="fas fa-file-circle-plus"></i>
+                    </div>
+                    <div class="notification-content">
+                      <div class="notification-title">
+                        Novo documento adicionado
+                      </div>
+                      <div class="notification-details">
+                        <span class="nif">NIF: 516321489</span>
+                        <span class="time">12 Jan, 09:30</span>
+                      </div>
+                      <div class="notification-description">
+                        Contrato de prestação de serviços
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="notification-footer">
+                  <a href="#" class="view-all-link"
+                    >Ver todas as notificações</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="book-emoji">
+              <i class="fas fa-book"></i>
+            </div>
+            <div class="user-dropdown">
+              <div class="user-trigger">
+                <div class="user-avatar">A</div>
+                <span>Antónia Silva</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="dropdown-menu">
+                <a href="#" class="dropdown-item">
+                  <i class="fas fa-user"></i>
+                  Meu Perfil
+                </a>
+                <a href="#" class="dropdown-item">
+                  <i class="fas fa-cog"></i>
+                  Configurações
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item logout">
+                  <i class="fas fa-sign-out-alt"></i>
+                  Terminar Sessão
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <section class="welcome-section">
+        <div class="welcome-header">
+          <div class="welcome-text">
+            <h1>Olá Antónia,</h1>
+            <p>Visualiza aqui o teu ponto de situação</p>
+          </div>
+          <a href="casos.html" class="cases-button">
+            <i class="fas fa-folder-open"></i>
+            Casos Ativos
+          </a>
+        </div>
+      </section>
+
+      <section class="dashboard-grid">
+        <div class="card">
+          <h2>Equipa</h2>
+          <div class="team-member">
+            <div class="member-avatar">A</div>
+            <div class="member-info">
+              <h3>Ana Pinheiro</h3>
+              <p>Inspetor</p>
+            </div>
+          </div>
+          <div class="team-member">
+            <div class="member-avatar">D</div>
+            <div class="member-info">
+              <h3>Diogo Rato</h3>
+              <p>Inspetor</p>
+            </div>
+          </div>
+          <div class="team-member">
+            <div class="member-avatar">B</div>
+            <div class="member-info">
+              <h3>Bernardo Ricardo</h3>
+              <p>Inspetor</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>Casos Ativos</h2>
+          <div class="cases-container">
+            <div class="case-item">
+              <div class="case-count">6</div>
+              <div class="case-label">Ana Pinheiro</div>
+            </div>
+            <div class="case-item">
+              <div class="case-count">13</div>
+              <div class="case-label">Diogo Rato</div>
+            </div>
+            <div class="case-item">
+              <div class="case-count">9</div>
+              <div class="case-label">Bernardo Ricardo</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="charts-container">
+        <div class="chart-card">
+          <h3 class="chart-title">Distribuição de Casos</h3>
+          <div class="chart-container">
+            <canvas id="casesChart"></canvas>
+          </div>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <div class="stat-value">33%</div>
+              <div class="stat-label">Casos por abrir</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">44%</div>
+              <div class="stat-label">Casos em aberto</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-value">23%</div>
+              <div class="stat-label">Casos concluídos</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="chart-card">
+          <h3 class="chart-title">Progresso Mensal</h3>
+          <div class="chart-container">
+            <canvas id="progressChart"></canvas>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer>
+      <div class="container">
+        <p>Autoridade Tributária &copy; 2025 - Todos os direitos reservados</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

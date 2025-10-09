@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Autoridade Tributária - Detalhes do NIF</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="detalhes.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <div class="logo-icon">
+              <i class="fas fa-landmark"></i>
+            </div>
+            <div class="logo-text">Autoridade Tributária</div>
+          </div>
+          <div class="header-right">
+            <div class="folder-icon">
+              <i class="fas fa-folder"></i>
+            </div>
+            <div class="notification-dropdown">
+              <div class="notification-trigger">
+                <i class="fas fa-bell"></i>
+                <span class="notification-badge">3</span>
+              </div>
+              <div class="notification-menu">
+                <div class="notification-header">
+                  <h3>Notificações</h3>
+                  <span class="notification-count">3 novas</span>
+                </div>
+                <div class="notification-list">
+                  <div class="notification-item unread">
+                    <div class="notification-icon">
+                      <i class="fas fa-file-circle-plus"></i>
+                    </div>
+                    <div class="notification-content">
+                      <div class="notification-title">
+                        Novo documento adicionado
+                      </div>
+                      <div class="notification-details">
+                        <span class="nif">NIF: 517466735</span>
+                        <span class="time">Hoje, 14:30</span>
+                      </div>
+                      <div class="notification-description">
+                        Declaração de IVA do 1º trimestre
+                      </div>
+                    </div>
+                  </div>
+                  <div class="notification-item unread">
+                    <div class="notification-icon">
+                      <i class="fas fa-file-pen"></i>
+                    </div>
+                    <div class="notification-content">
+                      <div class="notification-title">Documento modificado</div>
+                      <div class="notification-details">
+                        <span class="nif">NIF: 516298451</span>
+                        <span class="time">Hoje, 11:15</span>
+                      </div>
+                      <div class="notification-description">
+                        Demonstração de resultados atualizada
+                      </div>
+                    </div>
+                  </div>
+                  <div class="notification-item unread">
+                    <div class="notification-icon">
+                      <i class="fas fa-file-circle-plus"></i>
+                    </div>
+                    <div class="notification-content">
+                      <div class="notification-title">
+                        Novo documento adicionado
+                      </div>
+                      <div class="notification-details">
+                        <span class="nif">NIF: 217745163</span>
+                        <span class="time">Ontem, 16:45</span>
+                      </div>
+                      <div class="notification-description">
+                        Recibos verdes do mês anterior
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="notification-footer">
+                  <a href="#" class="view-all-link"
+                    >Ver todas as notificações</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="book-emoji">
+              <i class="fas fa-book"></i>
+            </div>
+            <div class="user-dropdown">
+              <div class="user-trigger">
+                <div class="user-avatar">A</div>
+                <span>Antónia Silva</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="dropdown-menu">
+                <a href="#" class="dropdown-item">
+                  <i class="fas fa-user"></i>
+                  Meu Perfil
+                </a>
+                <a href="#" class="dropdown-item">
+                  <i class="fas fa-cog"></i>
+                  Configurações
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item logout">
+                  <i class="fas fa-sign-out-alt"></i>
+                  Terminar Sessão
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="page-header">
+        <div class="page-title">
+          <h1>NIF: <span id="nif-number">517466735</span></h1>
+          <p>Detalhes completos do contribuinte</p>
+        </div>
+        <div class="header-actions">
+          <a href="casos.html" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+            Voltar aos Casos
+          </a>
+          <button class="action-button inconsistencies-btn">
+            <i class="fas fa-exclamation-triangle"></i>
+            Inconsistências
+          </button>
+          <button class="action-button comparison-btn">
+            <i class="fas fa-columns"></i>
+            Comparação
+          </button>
+        </div>
+      </div>
+
+      <div class="services-section">
+        <h2>Serviços em Análise</h2>
+        <div class="services-grid">
+          <div class="service-checkbox">
+            <input type="checkbox" id="iva" name="services" checked />
+            <label for="iva">
+              <i class="fas fa-receipt"></i>
+              IVA
+            </label>
+          </div>
+          <div class="service-checkbox">
+            <input type="checkbox" id="irs" name="services" checked />
+            <label for="irs">
+              <i class="fas fa-file-invoice-dollar"></i>
+              IRS
+            </label>
+          </div>
+          <div class="service-checkbox">
+            <input type="checkbox" id="irc" name="services" />
+            <label for="irc">
+              <i class="fas fa-building"></i>
+              IRC
+            </label>
+          </div>
+          <div class="service-checkbox">
+            <input type="checkbox" id="modelo40" name="services" />
+            <label for="modelo40">
+              <i class="fas fa-file-alt"></i>
+              Modelo 40
+            </label>
+          </div>
+          <div class="service-checkbox">
+            <input type="checkbox" id="retencoes" name="services" />
+            <label for="retencoes">
+              <i class="fas fa-hand-holding-usd"></i>
+              Retenções na Fonte
+            </label>
+          </div>
+          <div class="service-checkbox">
+            <input type="checkbox" id="aduaneiro" name="services" />
+            <label for="aduaneiro">
+              <i class="fas fa-ship"></i>
+              Regime Aduaneiro
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="tabs-container">
+        <div class="tabs-header">
+          <button class="tab-btn active" data-tab="iva-tab">
+            <i class="fas fa-receipt"></i>
+            IVA
+          </button>
+          <button class="tab-btn" data-tab="irs-tab">
+            <i class="fas fa-file-invoice-dollar"></i>
+            IRS
+          </button>
+          <button class="tab-btn" data-tab="irc-tab">
+            <i class="fas fa-building"></i>
+            IRC
+          </button>
+          <button class="tab-btn" data-tab="modelo40-tab">
+            <i class="fas fa-file-alt"></i>
+            Modelo 40
+          </button>
+          <button class="tab-btn" data-tab="documentos-tab">
+            <i class="fas fa-folder-open"></i>
+            Documentos
+          </button>
+        </div>
+
+        <div class="tab-content active" id="iva-tab">
+          <div class="tab-section">
+            <h3>Declarações Periódicas de IVA</h3>
+            <div class="documents-grid">
+              <div class="document-card">
+                <div class="document-icon">
+                  <i class="fas fa-file-pdf"></i>
+                </div>
+                <div class="document-info">
+                  <h4>Declaração IVA - 1º Trimestre 2024</h4>
+                  <p>Estado: <span class="status pending">Em análise</span></p>
+                  <p>Data de submissão: 15/04/2024</p>
+                </div>
+                <div class="document-actions">
+                  <button class="action-btn">
+                    <i class="fas fa-download"></i>
+                  </button>
+                  <button class="action-btn">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="document-card">
+                <div class="document-icon">
+                  <i class="fas fa-file-pdf"></i>
+                </div>
+                <div class="document-info">
+                  <h4>Declaração IVA - 4º Trimestre 2023</h4>
+                  <p>Estado: <span class="status completed">Concluído</span></p>
+                  <p>Data de submissão: 15/01/2024</p>
+                </div>
+                <div class="document-actions">
+                  <button class="action-btn">
+                    <i class="fas fa-download"></i>
+                  </button>
+                  <button class="action-btn">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="tab-section">
+            <h3>Liquidações</h3>
+            <div class="info-grid">
+              <div class="info-item">
+                <span class="info-label">Valor a pagar:</span>
+                <span class="info-value">€ 2.450,00</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Data limite:</span>
+                <span class="info-value">25/05/2024</span>
+              </div>
+              <div class="info-item">
+                <span class="info-label">Estado:</span>
+                <span class="info-value status pending">Por liquidar</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-content" id="irs-tab">
+          <div class="tab-section">
+            <h3>Declaração Anual de IRS</h3>
+            <div class="documents-grid">
+              <div class="document-card">
+                <div class="document-icon">
+                  <i class="fas fa-file-pdf"></i>
+                </div>
+                <div class="document-info">
+                  <h4>Declaração IRS 2023</h4>
+                  <p>Estado: <span class="status completed">Concluído</span></p>
+                  <p>Data de submissão: 15/03/2024</p>
+                </div>
+                <div class="document-actions">
+                  <button class="action-btn">
+                    <i class="fas fa-download"></i>
+                  </button>
+                  <button class="action-btn">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tab-content" id="irc-tab">
+          <div class="tab-section">
+            <h3>Declaração Anual de IRC</h3>
+            <p class="no-data">Nenhuma declaração de IRC submetida</p>
+          </div>
+        </div>
+
+        <div class="tab-content" id="modelo40-tab">
+          <div class="tab-section">
+            <h3>Declaração Modelo 40</h3>
+            <p class="no-data">Nenhuma declaração Modelo 40 submetida</p>
+          </div>
+        </div>
+
+        <div class="tab-content" id="documentos-tab">
+          <div class="tab-section">
+            <h3>Todos os Documentos</h3>
+            <div class="documents-list">
+              <div class="document-item">
+                <i class="fas fa-file-pdf"></i>
+                <div class="document-details">
+                  <h4>Declaração IVA - 1º Trimestre 2024</h4>
+                  <p>15/04/2024 • 2.3 MB</p>
+                </div>
+                <div class="document-actions">
+                  <button class="action-btn">
+                    <i class="fas fa-download"></i>
+                  </button>
+                  <button class="action-btn">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="document-item">
+                <i class="fas fa-file-pdf"></i>
+                <div class="document-details">
+                  <h4>Declaração IVA - 4º Trimestre 2023</h4>
+                  <p>15/01/2024 • 1.8 MB</p>
+                </div>
+                <div class="document-actions">
+                  <button class="action-btn">
+                    <i class="fas fa-download"></i>
+                  </button>
+                  <button class="action-btn">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                </div>
+              </div>
+              <div class="document-item">
+                <i class="fas fa-file-pdf"></i>
+                <div class="document-details">
+                  <h4>Declaração IRS 2023</h4>
+                  <p>15/03/2024 • 3.1 MB</p>
+                </div>
+                <div class="document-actions">
+                  <button class="action-btn">
+                    <i class="fas fa-download"></i>
+                  </button>
+                  <button class="action-btn">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sticky Notes Panel -->
+    <div class="sticky-notes-panel minimized">
+      <div class="notes-header">
+        <h3>
+          <i class="fas fa-sticky-note"></i>
+          Observações
+        </h3>
+        <button class="toggle-notes-btn">
+          <i class="fas fa-chevron-up"></i>
+        </button>
+      </div>
+      <div class="notes-content">
+        <textarea
+          placeholder="Escreva aqui as suas observações sobre este caso..."
+        ></textarea>
+        <div class="notes-actions">
+          <button class="save-notes-btn">
+            <i class="fas fa-save"></i>
+            Guardar
+          </button>
+          <button class="clear-notes-btn">
+            <i class="fas fa-trash"></i>
+            Limpar
+          </button>
+        </div>
+        <div class="saved-notes">
+          <h4>Notas Guardadas:</h4>
+          <div class="note-item">
+            <div class="note-date">15/05/2024 14:30</div>
+            <div class="note-text">
+              Contactar contribuinte para esclarecimento sobre deduções de IVA
+              no automóvel.
+            </div>
+          </div>
+          <div class="note-item">
+            <div class="note-date">10/05/2024 09:15</div>
+            <div class="note-text">
+              Verificar documentação de suporte às operações intracomunitárias.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Inconsistencies Modal -->
+    <div class="modal inconsistencies-modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3>
+            <i class="fas fa-exclamation-triangle"></i>
+            Inconsistências Detetadas
+          </h3>
+          <button class="close-modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="inconsistency-item">
+            <div class="inconsistency-icon">
+              <i class="fas fa-exclamation-circle"></i>
+            </div>
+            <div class="inconsistency-details">
+              <h4>Divergência nas Receitas Declaradas</h4>
+              <p>
+                Diferença de € 15.230,00 entre a declaração de IRS e IVA para o
+                período 2023.
+              </p>
+              <div class="inconsistency-meta">
+                <span class="severity high">Alta Severidade</span>
+                <span class="date">Detetado: 15/05/2024</span>
+              </div>
+            </div>
+          </div>
+          <div class="inconsistency-item">
+            <div class="inconsistency-icon">
+              <i class="fas fa-exclamation-circle"></i>
+            </div>
+            <div class="inconsistency-details">
+              <h4>Deduções de IVA Irregulares</h4>
+              <p>
+                Dedução de IVA em viatura ligeira de passageiros não elegível
+                para dedução total.
+              </p>
+              <div class="inconsistency-meta">
+                <span class="severity medium">Média Severidade</span>
+                <span class="date">Detetado: 10/05/2024</span>
+              </div>
+            </div>
+          </div>
+          <div class="inconsistency-item">
+            <div class="inconsistency-icon">
+              <i class="fas fa-exclamation-circle"></i>
+            </div>
+            <div class="inconsistency-details">
+              <h4>Operações Intracomunitárias Não Declaradas</h4>
+              <p>
+                Falta de declaração de aquisições intracomunitárias no 1º
+                trimestre de 2024.
+              </p>
+              <div class="inconsistency-meta">
+                <span class="severity high">Alta Severidade</span>
+                <span class="date">Detetado: 08/05/2024</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary">Exportar Relatório</button>
+          <button class="btn btn-secondary">Marcar como Resolvido</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Comparison Modal -->
+    <div class="modal comparison-modal">
+      <div class="modal-content large">
+        <div class="modal-header">
+          <h3>
+            <i class="fas fa-columns"></i>
+            Comparação de Serviços
+          </h3>
+          <button class="close-modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="comparison-grid">
+            <div class="comparison-section">
+              <h4>IVA</h4>
+              <div class="comparison-item">
+                <span class="comparison-label">Receitas Totais 2023:</span>
+                <span class="comparison-value">€ 245.670,00</span>
+              </div>
+              <div class="comparison-item">
+                <span class="comparison-label">IVA a Pagar:</span>
+                <span class="comparison-value">€ 12.450,00</span>
+              </div>
+              <div class="comparison-item">
+                <span class="comparison-label">Deduções:</span>
+                <span class="comparison-value">€ 8.230,00</span>
+              </div>
+            </div>
+            <div class="comparison-section">
+              <h4>IRS</h4>
+              <div class="comparison-item">
+                <span class="comparison-label">Receitas Totais 2023:</span>
+                <span class="comparison-value">€ 230.440,00</span>
+              </div>
+              <div class="comparison-item">
+                <span class="comparison-label">IRS Liquidado:</span>
+                <span class="comparison-value">€ 45.320,00</span>
+              </div>
+              <div class="comparison-item">
+                <span class="comparison-label">Despesas Dedutíveis:</span>
+                <span class="comparison-value">€ 32.150,00</span>
+              </div>
+            </div>
+            <div class="comparison-section">
+              <h4>IRC</h4>
+              <div class="comparison-item">
+                <span class="comparison-label">Resultado Líquido:</span>
+                <span class="comparison-value">€ 89.120,00</span>
+              </div>
+              <div class="comparison-item">
+                <span class="comparison-label">IRC Liquidado:</span>
+                <span class="comparison-value">€ 21.340,00</span>
+              </div>
+              <div class="comparison-item">
+                <span class="comparison-label">Prejuízos Acumulados:</span>
+                <span class="comparison-value">€ 12.450,00</span>
+              </div>
+            </div>
+          </div>
+          <div class="comparison-notes">
+            <h4>Observações da Comparação:</h4>
+            <ul>
+              <li>
+                Diferença de € 15.230,00 nas receitas declaradas entre IVA e IRS
+              </li>
+              <li>
+                Deduções de IVA superiores ao esperado para o setor de atividade
+              </li>
+              <li>
+                IRC declarado mas não existe declaração de IRS empresarial
+                correspondente
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary">Gerar Relatório Comparativo</button>
+          <button class="btn btn-secondary">Exportar para Excel</button>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container">
+        <p>Autoridade Tributária &copy; 2025 - Todos os direitos reservados</p>
+      </div>
+    </footer>
+
+    <script src="detalhes.js"></script>
+  </body>
+</html>

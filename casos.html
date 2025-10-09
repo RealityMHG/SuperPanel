@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Autoridade Tributária - Os Meus Casos</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="casos.css" />
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <div class="logo-icon">
+              <i class="fas fa-landmark"></i>
+            </div>
+            <div class="logo-text">Autoridade Tributária</div>
+          </div>
+          <div class="header-right">
+            <div class="folder-icon">
+              <i class="fas fa-folder"></i>
+            </div>
+            <div class="notification-dropdown">
+              <div class="notification-trigger">
+                <i class="fas fa-bell"></i>
+                <span class="notification-badge">3</span>
+              </div>
+              <div class="notification-menu">
+                <div class="notification-header">
+                  <h3>Notificações</h3>
+                  <span class="notification-count">3 novas</span>
+                </div>
+                <div class="notification-list">
+                  <div class="notification-item unread">
+                    <div class="notification-icon">
+                      <i class="fas fa-file-circle-plus"></i>
+                    </div>
+                    <div class="notification-content">
+                      <div class="notification-title">
+                        Novo documento adicionado
+                      </div>
+                      <div class="notification-details">
+                        <span class="nif">NIF: 517466735</span>
+                        <span class="time">Hoje, 14:30</span>
+                      </div>
+                      <div class="notification-description">
+                        Declaração de IVA do 1º trimestre
+                      </div>
+                    </div>
+                  </div>
+                  <div class="notification-item unread">
+                    <div class="notification-icon">
+                      <i class="fas fa-file-pen"></i>
+                    </div>
+                    <div class="notification-content">
+                      <div class="notification-title">Documento modificado</div>
+                      <div class="notification-details">
+                        <span class="nif">NIF: 516298451</span>
+                        <span class="time">Hoje, 11:15</span>
+                      </div>
+                      <div class="notification-description">
+                        Demonstração de resultados atualizada
+                      </div>
+                    </div>
+                  </div>
+                  <div class="notification-item unread">
+                    <div class="notification-icon">
+                      <i class="fas fa-file-circle-plus"></i>
+                    </div>
+                    <div class="notification-content">
+                      <div class="notification-title">
+                        Novo documento adicionado
+                      </div>
+                      <div class="notification-details">
+                        <span class="nif">NIF: 217745163</span>
+                        <span class="time">Ontem, 16:45</span>
+                      </div>
+                      <div class="notification-description">
+                        Recibos verdes do mês anterior
+                      </div>
+                    </div>
+                  </div>
+                  <div class="notification-item">
+                    <div class="notification-icon">
+                      <i class="fas fa-file-pen"></i>
+                    </div>
+                    <div class="notification-content">
+                      <div class="notification-title">Documento modificado</div>
+                      <div class="notification-details">
+                        <span class="nif">NIF: 512587963</span>
+                        <span class="time">Ontem, 14:20</span>
+                      </div>
+                      <div class="notification-description">
+                        Ficha de trabalho atualizada
+                      </div>
+                    </div>
+                  </div>
+                  <div class="notification-item">
+                    <div class="notification-icon">
+                      <i class="fas fa-file-circle-plus"></i>
+                    </div>
+                    <div class="notification-content">
+                      <div class="notification-title">
+                        Novo documento adicionado
+                      </div>
+                      <div class="notification-details">
+                        <span class="nif">NIF: 516321489</span>
+                        <span class="time">12 Jan, 09:30</span>
+                      </div>
+                      <div class="notification-description">
+                        Contrato de prestação de serviços
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="notification-footer">
+                  <a href="#" class="view-all-link"
+                    >Ver todas as notificações</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="book-emoji">
+              <i class="fas fa-book"></i>
+            </div>
+            <div class="user-dropdown">
+              <div class="user-trigger">
+                <div class="user-avatar">A</div>
+                <span>Antónia Silva</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="dropdown-menu">
+                <a href="#" class="dropdown-item">
+                  <i class="fas fa-user"></i>
+                  Meu Perfil
+                </a>
+                <a href="#" class="dropdown-item">
+                  <i class="fas fa-cog"></i>
+                  Configurações
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item logout">
+                  <i class="fas fa-sign-out-alt"></i>
+                  Terminar Sessão
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="page-header">
+        <div class="page-title">
+          <h1>Casos Ativos</h1>
+          <p>Visualização detalhada de todos os casos atribuídos</p>
+        </div>
+        <a href="dashboard.html" class="back-button">
+          <i class="fas fa-arrow-left"></i>
+          Voltar ao Dashboard
+        </a>
+      </div>
+
+      <div class="table-container">
+        <table class="cases-table">
+          <thead>
+            <tr>
+              <th>NIF</th>
+              <th>Regra</th>
+              <th>Score</th>
+              <th>Inspetor</th>
+              <th>Avisos</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <a href="detalhes.html?nif=517466735" class="nif-link">
+                  517466735
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+              </td>
+              <td>Regra 4A - Declaração IVA</td>
+              <td>
+                <div class="score-container">
+                  <div class="score-bar">
+                    <div class="score-fill" style="width: 85%"></div>
+                  </div>
+                  <span class="score-value">85</span>
+                </div>
+              </td>
+              <td>Ana Pinheiro</td>
+              <td>Declaração trimestral em atraso</td>
+            </tr>
+            <tr>
+              <td>
+                <a href="detalhes.html?nif=516298451" class="nif-link">
+                  516298451
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+              </td>
+              <td>Regra 7C - IRC Anual</td>
+              <td>
+                <div class="score-container">
+                  <div class="score-bar">
+                    <div class="score-fill" style="width: 42%"></div>
+                  </div>
+                  <span class="score-value">42</span>
+                </div>
+              </td>
+              <td>Diogo Rato</td>
+              <td>Divergências nas deduções fiscais</td>
+            </tr>
+            <tr>
+              <td>
+                <a href="detalhes.html?nif=217745163" class="nif-link">
+                  217745163
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+              </td>
+              <td>Regra 2B - Retenção na Fonte</td>
+              <td>
+                <div class="score-container">
+                  <div class="score-bar">
+                    <div class="score-fill" style="width: 67%"></div>
+                  </div>
+                  <span class="score-value">67</span>
+                </div>
+              </td>
+              <td>Bernardo Ricardo</td>
+              <td>Valores retidos incorretamente</td>
+            </tr>
+            <tr>
+              <td>
+                <a href="detalhes.html?nif=512587963" class="nif-link">
+                  512587963
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+              </td>
+              <td>Regra 5D - IVA Automóvel</td>
+              <td>
+                <div class="score-container">
+                  <div class="score-bar">
+                    <div class="score-fill" style="width: 91%"></div>
+                  </div>
+                  <span class="score-value">91</span>
+                </div>
+              </td>
+              <td>Ana Pinheiro</td>
+              <td>Dedução IVA em viatura não elegível</td>
+            </tr>
+            <tr>
+              <td>
+                <a href="detalhes.html?nif=516321489" class="nif-link">
+                  516321489
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+              </td>
+              <td>Regra 3F - IRC Estimativa</td>
+              <td>
+                <div class="score-container">
+                  <div class="score-bar">
+                    <div class="score-fill" style="width: 28%"></div>
+                  </div>
+                  <span class="score-value">28</span>
+                </div>
+              </td>
+              <td>Diogo Rato</td>
+              <td>Pagamentos por conta em falta</td>
+            </tr>
+            <tr>
+              <td>
+                <a href="detalhes.html?nif=216874125" class="nif-link">
+                  216874125
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+              </td>
+              <td>Regra 8A - IVA Intracomunitário</td>
+              <td>
+                <div class="score-container">
+                  <div class="score-bar">
+                    <div class="score-fill" style="width: 74%"></div>
+                  </div>
+                  <span class="score-value">74</span>
+                </div>
+              </td>
+              <td>Bernardo Ricardo</td>
+              <td>Operações intracomunitárias não declaradas</td>
+            </tr>
+            <tr>
+              <td>
+                <a href="detalhes.html?nif=217236977" class="nif-link">
+                  217236977
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+              </td>
+              <td>Regra 6E - IRC Consolidado</td>
+              <td>
+                <div class="score-container">
+                  <div class="score-bar">
+                    <div class="score-fill" style="width: 53%"></div>
+                  </div>
+                  <span class="score-value">53</span>
+                </div>
+              </td>
+              <td>Ana Pinheiro</td>
+              <td>Demonstrações consolidadas em atraso</td>
+            </tr>
+            <tr>
+              <td>
+                <a href="detalhes.html?nif=213852369" class="nif-link">
+                  213852369
+                  <i class="fas fa-external-link-alt"></i>
+                </a>
+              </td>
+              <td>Regra 1G - IRS Empresarial</td>
+              <td>
+                <div class="score-container">
+                  <div class="score-bar">
+                    <div class="score-fill" style="width: 36%"></div>
+                  </div>
+                  <span class="score-value">36</span>
+                </div>
+              </td>
+              <td>Diogo Rato</td>
+              <td>Rendimentos empresariais não declarados</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="table-footer">
+        <div class="pagination">
+          <button class="pagination-btn active">1</button>
+          <button class="pagination-btn">2</button>
+          <button class="pagination-btn">3</button>
+          <span class="pagination-ellipsis">...</span>
+          <button class="pagination-btn">8</button>
+        </div>
+        <div class="results-info">Mostrando 1-8 de 42 resultados</div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container">
+        <p>Autoridade Tributária &copy; 2025 - Todos os direitos reservados</p>
+      </div>
+    </footer>
+
+    <script src="casos.js"></script>
+  </body>
+</html>
