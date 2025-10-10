@@ -1,205 +1,332 @@
 <!DOCTYPE html>
 <html lang="pt">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Autoridade Tributária - Formação</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="formacao.css" />
-</head>
-<body>
+  </head>
+  <body>
     <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <div class="logo-icon">
-                        <i class="fas fa-landmark"></i>
-                    </div>
-                    <div class="logo-text">Autoridade Tributária</div>
-                </div>
-                <div class="header-right">
-                    <div class="folder-icon">
-                        <i class="fas fa-folder"></i>
-                    </div>
-                    <div class="notification-dropdown">
-                        <div class="notification-trigger">
-                            <i class="fas fa-bell"></i>
-                            <span class="notification-badge">3</span>
-                        </div>
-                        <!-- Conteúdo do dropdown de notificações (manter igual outras páginas) -->
-                    </div>
-                    <a href="formacao.html" class="book-emoji active">
-                        <i class="fas fa-book"></i>
-                    </a>
-                    <div class="user-dropdown">
-                        <!-- Conteúdo do dropdown do usuário (manter igual outras páginas) -->
-                    </div>
-                </div>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <div class="logo-icon">
+              <i class="fas fa-landmark"></i>
             </div>
+            <div class="logo-text">Autoridade Tributária</div>
+          </div>
+          <div class="header-right">
+            <div class="folder-icon">
+              <i class="fas fa-folder"></i>
+            </div>
+            <div class="notification-dropdown">
+              <div class="notification-trigger">
+                <i class="fas fa-bell"></i>
+                <span class="notification-badge">3</span>
+              </div>
+              <div class="notification-menu">
+                <div class="notification-header">
+                  <h3>Notificações</h3>
+                  <span class="notification-count">3 novas</span>
+                </div>
+                <div class="notification-list">
+                  <div class="notification-item unread">
+                    <div class="notification-icon">
+                      <i class="fas fa-file-circle-plus"></i>
+                    </div>
+                    <div class="notification-content">
+                      <div class="notification-title">
+                        Novo documento adicionado
+                      </div>
+                      <div class="notification-details">
+                        <span class="nif">NIF: 517466735</span>
+                        <span class="time">Hoje, 14:30</span>
+                      </div>
+                      <div class="notification-description">
+                        Declaração de IVA do 1º trimestre
+                      </div>
+                    </div>
+                  </div>
+                  <div class="notification-item unread">
+                    <div class="notification-icon">
+                      <i class="fas fa-file-pen"></i>
+                    </div>
+                    <div class="notification-content">
+                      <div class="notification-title">Documento modificado</div>
+                      <div class="notification-details">
+                        <span class="nif">NIF: 516298451</span>
+                        <span class="time">Hoje, 11:15</span>
+                      </div>
+                      <div class="notification-description">
+                        Demonstração de resultados atualizada
+                      </div>
+                    </div>
+                  </div>
+                  <div class="notification-item unread">
+                    <div class="notification-icon">
+                      <i class="fas fa-file-circle-plus"></i>
+                    </div>
+                    <div class="notification-content">
+                      <div class="notification-title">
+                        Novo documento adicionado
+                      </div>
+                      <div class="notification-details">
+                        <span class="nif">NIF: 217745163</span>
+                        <span class="time">Ontem, 16:45</span>
+                      </div>
+                      <div class="notification-description">
+                        Recibos verdes do mês anterior
+                      </div>
+                    </div>
+                  </div>
+                  <div class="notification-item">
+                    <div class="notification-icon">
+                      <i class="fas fa-file-pen"></i>
+                    </div>
+                    <div class="notification-content">
+                      <div class="notification-title">Documento modificado</div>
+                      <div class="notification-details">
+                        <span class="nif">NIF: 512587963</span>
+                        <span class="time">Ontem, 14:20</span>
+                      </div>
+                      <div class="notification-description">
+                        Ficha de trabalho atualizada
+                      </div>
+                    </div>
+                  </div>
+                  <div class="notification-item">
+                    <div class="notification-icon">
+                      <i class="fas fa-file-circle-plus"></i>
+                    </div>
+                    <div class="notification-content">
+                      <div class="notification-title">
+                        Novo documento adicionado
+                      </div>
+                      <div class="notification-details">
+                        <span class="nif">NIF: 516321489</span>
+                        <span class="time">12 Jan, 09:30</span>
+                      </div>
+                      <div class="notification-description">
+                        Contrato de prestação de serviços
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="notification-footer">
+                  <a href="#" class="view-all-link"
+                    >Ver todas as notificações</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="book-emoji active">
+              <a href="formacao.html">
+                <i class="fas fa-book"></i>
+              </a>
+            </div>
+            <div class="user-dropdown">
+              <div class="user-trigger">
+                <div class="user-avatar">A</div>
+                <span>Antónia Silva</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="dropdown-menu">
+                <a href="#" class="dropdown-item">
+                  <i class="fas fa-user"></i>
+                  Meu Perfil
+                </a>
+                <a href="#" class="dropdown-item">
+                  <i class="fas fa-cog"></i>
+                  Configurações
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item logout">
+                  <i class="fas fa-sign-out-alt"></i>
+                  Terminar Sessão
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
+      </div>
     </header>
 
     <div class="container">
-        <div class="page-header">
-            <div class="page-title">
-                <h1>Centro de Formação</h1>
-                <p>Desenvolva as suas competências com os nossos cursos especializados</p>
+      <div class="page-header">
+        <div class="page-title">
+          <h1>Centro de Formação</h1>
+          <p>
+            Desenvolva as suas competências com os nossos cursos especializados
+          </p>
+        </div>
+        <a href="dashboard.html" class="back-button">
+          <i class="fas fa-arrow-left"></i>
+          Voltar ao Dashboard
+        </a>
+      </div>
+
+      <div class="courses-grid">
+        <div class="course-card">
+          <div class="course-image">
+            <div class="course-badge">Mais Popular</div>
+            <img
+              src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+              alt="Deteção de Fraude IVA"
+            />
+          </div>
+          <div class="course-content">
+            <h3>Padrão de Deteção de Redes de Fraude do IVA</h3>
+            <p class="course-description">
+              Aprenda a identificar e investigar redes organizadas de fraude no
+              IVA através de técnicas avançadas de análise de dados e padrões
+              comportamentais.
+            </p>
+            <div class="course-meta">
+              <div class="meta-item">
+                <i class="fas fa-clock"></i>
+                <span>8 horas</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-signal"></i>
+                <span>Avançado</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-users"></i>
+                <span>Certificado</span>
+              </div>
             </div>
-            <a href="dashboard.html" class="back-button">
-                <i class="fas fa-arrow-left"></i>
-                Voltar ao Dashboard
-            </a>
+            <div class="course-stats">
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <span>4.8</span>
+                <span class="reviews">(247 avaliações)</span>
+              </div>
+              <div class="enrollment">
+                <i class="fas fa-user-graduate"></i>
+                <span>1.245 inspetores</span>
+              </div>
+            </div>
+            <div class="course-features">
+              <div class="feature">
+                <i class="fas fa-check-circle"></i>
+                <span>Análise de redes complexas</span>
+              </div>
+              <div class="feature">
+                <i class="fas fa-check-circle"></i>
+                <span>Casos práticos reais</span>
+              </div>
+              <div class="feature">
+                <i class="fas fa-check-circle"></i>
+                <span>Ferramentas de análise</span>
+              </div>
+            </div>
+            <button class="enroll-button">
+              <i class="fas fa-play-circle"></i>
+              Iniciar Curso
+            </button>
+          </div>
         </div>
 
-        <div class="courses-grid">
-            <div class="course-card">
-                <div class="course-image">
-                    <div class="course-badge">Mais Popular</div>
-                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Deteção de Fraude IVA">
-                </div>
-                <div class="course-content">
-                    <h3>Padrão de Deteção de Redes de Fraude do IVA</h3>
-                    <p class="course-description">
-                        Aprenda a identificar e investigar redes organizadas de fraude no IVA através de 
-                        técnicas avançadas de análise de dados e padrões comportamentais.
-                    </p>
-                    <div class="course-meta">
-                        <div class="meta-item">
-                            <i class="fas fa-clock"></i>
-                            <span>8 horas</span>
-                        </div>
-                        <div class="meta-item">
-                            <i class="fas fa-signal"></i>
-                            <span>Avançado</span>
-                        </div>
-                        <div class="meta-item">
-                            <i class="fas fa-users"></i>
-                            <span>Certificado</span>
-                        </div>
-                    </div>
-                    <div class="course-stats">
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <span>4.8</span>
-                            <span class="reviews">(247 avaliações)</span>
-                        </div>
-                        <div class="enrollment">
-                            <i class="fas fa-user-graduate"></i>
-                            <span>1.245 inspetores</span>
-                        </div>
-                    </div>
-                    <div class="course-features">
-                        <div class="feature">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Análise de redes complexas</span>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Casos práticos reais</span>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Ferramentas de análise</span>
-                        </div>
-                    </div>
-                    <button class="enroll-button">
-                        <i class="fas fa-play-circle"></i>
-                        Iniciar Curso
-                    </button>
-                </div>
+        <div class="course-card">
+          <div class="course-image">
+            <div class="course-badge new">Novo</div>
+            <img
+              src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80"
+              alt="Fraude de Patrimónios"
+            />
+          </div>
+          <div class="course-content">
+            <h3>Deteção da Fraude de Patrimónios</h3>
+            <p class="course-description">
+              Domine as técnicas de identificação de discrepâncias patrimoniais
+              e ocultação de ativos através de análise fiscal integrada.
+            </p>
+            <div class="course-meta">
+              <div class="meta-item">
+                <i class="fas fa-clock"></i>
+                <span>6 horas</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-signal"></i>
+                <span>Intermediário</span>
+              </div>
+              <div class="meta-item">
+                <i class="fas fa-users"></i>
+                <span>Certificado</span>
+              </div>
             </div>
-
-            <div class="course-card">
-                <div class="course-image">
-                    <div class="course-badge new">Novo</div>
-                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Fraude de Patrimónios">
-                </div>
-                <div class="course-content">
-                    <h3>Deteção da Fraude de Patrimónios</h3>
-                    <p class="course-description">
-                        Domine as técnicas de identificação de discrepâncias patrimoniais e ocultação de ativos 
-                        através de análise fiscal integrada.
-                    </p>
-                    <div class="course-meta">
-                        <div class="meta-item">
-                            <i class="fas fa-clock"></i>
-                            <span>6 horas</span>
-                        </div>
-                        <div class="meta-item">
-                            <i class="fas fa-signal"></i>
-                            <span>Intermediário</span>
-                        </div>
-                        <div class="meta-item">
-                            <i class="fas fa-users"></i>
-                            <span>Certificado</span>
-                        </div>
-                    </div>
-                    <div class="course-stats">
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <span>4.6</span>
-                            <span class="reviews">(184 avaliações)</span>
-                        </div>
-                        <div class="enrollment">
-                            <i class="fas fa-user-graduate"></i>
-                            <span>892 inspetores</span>
-                        </div>
-                    </div>
-                    <div class="course-features">
-                        <div class="feature">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Análise patrimonial integrada</span>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Técnicas de investigação</span>
-                        </div>
-                        <div class="feature">
-                            <i class="fas fa-check-circle"></i>
-                            <span>Legislação atualizada</span>
-                        </div>
-                    </div>
-                    <button class="enroll-button">
-                        <i class="fas fa-play-circle"></i>
-                        Iniciar Curso
-                    </button>
-                </div>
+            <div class="course-stats">
+              <div class="rating">
+                <i class="fas fa-star"></i>
+                <span>4.6</span>
+                <span class="reviews">(184 avaliações)</span>
+              </div>
+              <div class="enrollment">
+                <i class="fas fa-user-graduate"></i>
+                <span>892 inspetores</span>
+              </div>
             </div>
+            <div class="course-features">
+              <div class="feature">
+                <i class="fas fa-check-circle"></i>
+                <span>Análise patrimonial integrada</span>
+              </div>
+              <div class="feature">
+                <i class="fas fa-check-circle"></i>
+                <span>Técnicas de investigação</span>
+              </div>
+              <div class="feature">
+                <i class="fas fa-check-circle"></i>
+                <span>Legislação atualizada</span>
+              </div>
+            </div>
+            <button class="enroll-button">
+              <i class="fas fa-play-circle"></i>
+              Iniciar Curso
+            </button>
+          </div>
         </div>
+      </div>
 
-        <div class="coming-soon">
-            <h2>Em Breve</h2>
-            <div class="coming-soon-grid">
-                <div class="coming-soon-card">
-                    <h4>Fraude em Operações Intracomunitárias</h4>
-                    <p>Identificação de operações fraudulentas no espaço europeu</p>
-                    <div class="progress-container">
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 65%"></div>
-                        </div>
-                        <span>65% desenvolvido</span>
-                    </div>
-                </div>
-                <div class="coming-soon-card">
-                    <h4>Análise de Dados com IA</h4>
-                    <p>Utilização de inteligência artificial na deteção de fraudes</p>
-                    <div class="progress-container">
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 40%"></div>
-                        </div>
-                        <span>40% desenvolvido</span>
-                    </div>
-                </div>
+      <div class="coming-soon">
+        <h2>Em Breve</h2>
+        <div class="coming-soon-grid">
+          <div class="coming-soon-card">
+            <h4>Fraude em Operações Intracomunitárias</h4>
+            <p>Identificação de operações fraudulentas no espaço europeu</p>
+            <div class="progress-container">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 65%"></div>
+              </div>
+              <span>65% desenvolvido</span>
             </div>
+          </div>
+          <div class="coming-soon-card">
+            <h4>Análise de Dados com IA</h4>
+            <p>Utilização de inteligência artificial na deteção de fraudes</p>
+            <div class="progress-container">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 40%"></div>
+              </div>
+              <span>40% desenvolvido</span>
+            </div>
+          </div>
         </div>
+      </div>
     </div>
 
     <footer>
-        <div class="container">
-            <p>Autoridade Tributária &copy; 2025 - Todos os direitos reservados</p>
-        </div>
+      <div class="container">
+        <p>Autoridade Tributária &copy; 2025 - Todos os direitos reservados</p>
+      </div>
     </footer>
 
     <script src="formacao.js"></script>
-</body>
+  </body>
 </html>

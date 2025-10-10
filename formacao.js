@@ -18,12 +18,13 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Header functionality (copiar do detalhes.js)
+  // Header functionality
   const userDropdown = document.querySelector(".user-dropdown");
   const userTrigger = document.querySelector(".user-trigger");
   const notificationDropdown = document.querySelector(".notification-dropdown");
   const notificationTrigger = document.querySelector(".notification-trigger");
 
+  // User dropdown
   if (userTrigger) {
     userTrigger.addEventListener("click", function (e) {
       e.stopPropagation();
@@ -32,6 +33,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // Notification dropdown
   if (notificationTrigger) {
     notificationTrigger.addEventListener("click", function (e) {
       e.stopPropagation();
@@ -40,8 +42,32 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
+  // Close dropdowns when clicking outside
   document.addEventListener("click", function () {
     if (userDropdown) userDropdown.classList.remove("active");
     if (notificationDropdown) notificationDropdown.classList.remove("active");
   });
+
+  // Mark notifications as read when clicked
+  const notificationItems = document.querySelectorAll(".notification-item");
+  notificationItems.forEach((item) => {
+    item.addEventListener("click", function () {
+      this.classList.remove("unread");
+      updateNotificationBadge();
+    });
+  });
+
+  function updateNotificationBadge() {
+    const unreadNotifications = document.querySelectorAll(
+      ".notification-item.unread"
+    ).length;
+    const badge = document.querySelector(".notification-badge");
+
+    if (unreadNotifications > 0) {
+      badge.textContent = unreadNotifications;
+      badge.style.display = "flex";
+    } else {
+      badge.style.display = "none";
+    }
+  }
 });
