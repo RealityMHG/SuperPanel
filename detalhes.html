@@ -140,6 +140,10 @@
             <i class="fas fa-exclamation-triangle"></i>
             Inconsistências
           </button>
+          <button class="action-button compare-services-btn">
+            <i class="fas fa-columns"></i>
+            Comparar Serviços
+          </button>
           <div class="nif-search-container">
             <div class="search-input-wrapper">
               <i class="fas fa-search"></i>
@@ -233,8 +237,54 @@
         </div>
       </div>
 
-      <!-- Comparison View -->
-      <div id="comparison-view" class="nif-view">
+      <!-- Service Comparison View -->
+      <div id="service-comparison-view" class="nif-view">
+        <div class="comparison-header-bar">
+          <h2>Comparação de Serviços</h2>
+          <div class="comparison-controls">
+            <button
+              class="action-button remove-service-comparison-btn"
+              id="remove-service-comparison-btn"
+            >
+              <i class="fas fa-times"></i>
+              Voltar aos Detalhes
+            </button>
+          </div>
+        </div>
+
+        <div class="comparison-layout">
+          <!-- First Service Column -->
+          <div class="comparison-column">
+            <div class="comparison-service-header">
+              <h3 id="first-service-title">Património</h3>
+              <span class="service-label">Serviço 1</span>
+            </div>
+            <div class="comparison-content" id="first-service-content">
+              <div class="service-placeholder compact">
+                <i class="fas fa-folder-open"></i>
+                <p>Conteúdo do primeiro serviço</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Second Service Column -->
+          <div class="comparison-column">
+            <div class="comparison-service-header">
+              <h3 id="second-service-title">Dívidas Fiscais</h3>
+              <span class="service-label">Serviço 2</span>
+            </div>
+            <div class="comparison-content" id="second-service-content">
+              <div class="service-placeholder compact">
+                <i class="fas fa-folder-open"></i>
+                <p>Conteúdo do segundo serviço</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- NIF Comparison View -->
+      <div id="nif-comparison-view" class="nif-view">
         <div class="comparison-header-bar">
           <h2>Comparação de NIFs</h2>
           <button
@@ -410,6 +460,165 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Service Comparison Modal -->
+    <div class="modal service-comparison-modal">
+      <div class="modal-content large">
+        <div class="modal-header">
+          <h3>
+            <i class="fas fa-columns"></i>
+            Comparar Serviços
+          </h3>
+          <button class="close-modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <div class="comparison-selection">
+            <div class="selection-column">
+              <h4>Primeiro Serviço</h4>
+              <div class="service-selection-grid" id="first-service-selection">
+                <button
+                  class="service-selection-button"
+                  data-service="patrimonio"
+                >
+                  <i class="fas fa-home"></i>
+                  <span>Património</span>
+                </button>
+                <button
+                  class="service-selection-button"
+                  data-service="dividas-fiscais"
+                >
+                  <i class="fas fa-file-invoice-dollar"></i>
+                  <span>Dívidas Fiscais</span>
+                </button>
+                <button
+                  class="service-selection-button"
+                  data-service="declaracoes"
+                >
+                  <i class="fas fa-file-alt"></i>
+                  <span>Declarações</span>
+                </button>
+                <button
+                  class="service-selection-button"
+                  data-service="sistema-cadastral"
+                >
+                  <i class="fas fa-database"></i>
+                  <span>Sistema Cadastral</span>
+                </button>
+                <button
+                  class="service-selection-button"
+                  data-service="certidao-permanente"
+                >
+                  <i class="fas fa-certificate"></i>
+                  <span>Certidão Permanente</span>
+                </button>
+                <button
+                  class="service-selection-button"
+                  data-service="declaracoes-acessorias"
+                >
+                  <i class="fas fa-file-contract"></i>
+                  <span>Declarações Acessórias</span>
+                </button>
+                <button class="service-selection-button" data-service="vies">
+                  <i class="fas fa-exchange-alt"></i>
+                  <span>VIES</span>
+                </button>
+                <button
+                  class="service-selection-button"
+                  data-service="e-fatura"
+                >
+                  <i class="fas fa-file-invoice"></i>
+                  <span>E-Fatura</span>
+                </button>
+                <button class="service-selection-button" data-service="mod40">
+                  <i class="fas fa-credit-card"></i>
+                  <span>MOD 40</span>
+                </button>
+                <button class="service-selection-button" data-service="dmr">
+                  <i class="fas fa-users"></i>
+                  <span>DMR</span>
+                </button>
+              </div>
+            </div>
+            <div class="selection-column">
+              <h4>Segundo Serviço</h4>
+              <div class="service-selection-grid" id="second-service-selection">
+                <button
+                  class="service-selection-button"
+                  data-service="patrimonio"
+                >
+                  <i class="fas fa-home"></i>
+                  <span>Património</span>
+                </button>
+                <button
+                  class="service-selection-button"
+                  data-service="dividas-fiscais"
+                >
+                  <i class="fas fa-file-invoice-dollar"></i>
+                  <span>Dívidas Fiscais</span>
+                </button>
+                <button
+                  class="service-selection-button"
+                  data-service="declaracoes"
+                >
+                  <i class="fas fa-file-alt"></i>
+                  <span>Declarações</span>
+                </button>
+                <button
+                  class="service-selection-button"
+                  data-service="sistema-cadastral"
+                >
+                  <i class="fas fa-database"></i>
+                  <span>Sistema Cadastral</span>
+                </button>
+                <button
+                  class="service-selection-button"
+                  data-service="certidao-permanente"
+                >
+                  <i class="fas fa-certificate"></i>
+                  <span>Certidão Permanente</span>
+                </button>
+                <button
+                  class="service-selection-button"
+                  data-service="declaracoes-acessorias"
+                >
+                  <i class="fas fa-file-contract"></i>
+                  <span>Declarações Acessórias</span>
+                </button>
+                <button class="service-selection-button" data-service="vies">
+                  <i class="fas fa-exchange-alt"></i>
+                  <span>VIES</span>
+                </button>
+                <button
+                  class="service-selection-button"
+                  data-service="e-fatura"
+                >
+                  <i class="fas fa-file-invoice"></i>
+                  <span>E-Fatura</span>
+                </button>
+                <button class="service-selection-button" data-service="mod40">
+                  <i class="fas fa-credit-card"></i>
+                  <span>MOD 40</span>
+                </button>
+                <button class="service-selection-button" data-service="dmr">
+                  <i class="fas fa-users"></i>
+                  <span>DMR</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary clear-comparison-btn">
+            <i class="fas fa-times"></i>
+            Limpar Seleção
+          </button>
+          <button class="btn btn-primary compare-selected-btn" disabled>
+            <i class="fas fa-columns"></i>
+            Comparar Serviços Selecionados
+          </button>
         </div>
       </div>
     </div>

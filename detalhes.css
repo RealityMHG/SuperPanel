@@ -418,6 +418,16 @@ header {
   transform: translateY(-2px);
 }
 
+.compare-services-btn {
+  background-color: var(--primary);
+  color: white;
+}
+
+.compare-services-btn:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
 /* NIF Search */
 .nif-search-container {
   display: flex;
@@ -651,6 +661,23 @@ header {
   opacity: 0.9;
 }
 
+.comparison-service-header {
+  background: var(--primary);
+  color: white;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+}
+
+.comparison-service-header h3 {
+  margin: 0 0 4px 0;
+  font-size: 18px;
+}
+
+.service-label {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
 .comparison-header-bar {
   display: flex;
   justify-content: space-between;
@@ -663,6 +690,21 @@ header {
 .comparison-header-bar h2 {
   color: var(--primary);
   margin: 0;
+}
+
+.comparison-controls {
+  display: flex;
+  gap: 12px;
+}
+
+.remove-service-comparison-btn {
+  background-color: #6c757d;
+  color: white;
+}
+
+.remove-service-comparison-btn:hover {
+  background-color: #5a6268;
+  transform: translateY(-2px);
 }
 
 /* Compact Services Section */
@@ -1026,6 +1068,75 @@ header {
   box-shadow: 0 4px 12px rgba(0, 86, 166, 0.4);
 }
 
+/* Service Comparison Modal */
+.service-comparison-modal .modal-content.large {
+  max-width: 900px;
+}
+
+.comparison-selection {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.selection-column h4 {
+  color: var(--primary);
+  margin-bottom: 15px;
+  font-size: 16px;
+  text-align: center;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--border);
+}
+
+.service-selection-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.service-selection-button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 15px 10px;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  background-color: var(--white);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  color: var(--text);
+  text-decoration: none;
+}
+
+.service-selection-button:hover {
+  border-color: var(--primary);
+  background-color: var(--secondary);
+  transform: translateY(-2px);
+}
+
+.service-selection-button.selected {
+  border-color: var(--accent);
+  background-color: var(--secondary);
+  border-width: 3px;
+}
+
+.service-selection-button i {
+  font-size: 20px;
+  color: var(--primary);
+}
+
+.service-selection-button.selected i {
+  color: var(--accent);
+}
+
+.service-selection-button span {
+  font-size: 12px;
+  text-align: center;
+}
+
 /* Modals */
 .modal {
   display: none;
@@ -1118,8 +1229,13 @@ header {
   color: white;
 }
 
-.btn-primary:hover {
+.btn-primary:hover:not(:disabled) {
   background-color: var(--primary-dark);
+}
+
+.btn-primary:disabled {
+  background-color: var(--border);
+  cursor: not-allowed;
 }
 
 .btn-secondary {
@@ -1427,6 +1543,11 @@ footer {
   .services-grid.compact {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .comparison-selection {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
 }
 
 @media (max-width: 768px) {
@@ -1487,6 +1608,11 @@ footer {
     align-items: flex-start;
   }
 
+  .comparison-controls {
+    width: 100%;
+    justify-content: flex-end;
+  }
+
   .documents-grid {
     grid-template-columns: 1fr;
   }
@@ -1543,6 +1669,10 @@ footer {
 
   .service-button.compact {
     padding: 14px 10px;
+  }
+
+  .service-selection-grid {
+    grid-template-columns: 1fr;
   }
 
   .container {

@@ -761,10 +761,14 @@ document.addEventListener("DOMContentLoaded", function () {
   let currentNif = null;
   let currentServiceForComparison = null;
   let compareServiceForComparison = null;
+  let selectedServices = { first: null, second: null };
 
   // DOM Elements
   const singleView = document.getElementById("single-view");
-  const comparisonView = document.getElementById("comparison-view");
+  const serviceComparisonView = document.getElementById(
+    "service-comparison-view"
+  );
+  const nifComparisonView = document.getElementById("nif-comparison-view");
   const currentNifDetails = document.getElementById("current-nif-details");
   const comparisonCurrentContent = document.getElementById(
     "comparison-current-content"
@@ -772,10 +776,25 @@ document.addEventListener("DOMContentLoaded", function () {
   const comparisonCompareContent = document.getElementById(
     "comparison-compare-content"
   );
+  const firstServiceContent = document.getElementById("first-service-content");
+  const secondServiceContent = document.getElementById(
+    "second-service-content"
+  );
+  const firstServiceTitle = document.getElementById("first-service-title");
+  const secondServiceTitle = document.getElementById("second-service-title");
   const currentNifDisplay = document.getElementById("current-nif-display");
   const compareNifDisplay = document.getElementById("compare-nif-display");
   const removeComparisonBtn = document.getElementById("remove-comparison-btn");
+  const removeServiceComparisonBtn = document.getElementById(
+    "remove-service-comparison-btn"
+  );
   const compareNifBtn = document.getElementById("compare-nif-btn");
+  const compareServicesBtn = document.querySelector(".compare-services-btn");
+  const serviceComparisonModal = document.querySelector(
+    ".service-comparison-modal"
+  );
+  const compareSelectedBtn = document.querySelector(".compare-selected-btn");
+  const clearComparisonBtn = document.querySelector(".clear-comparison-btn");
   const nifSearchInput = document.getElementById("nif-search");
   const searchResults = document.getElementById("search-results");
   const generateReportBtn = document.getElementById("generate-report-btn");
@@ -815,6 +834,84 @@ document.addEventListener("DOMContentLoaded", function () {
         loadServiceContentComparison(service, "compare");
       });
     });
+
+  // Compare services button
+  compareServicesBtn.addEventListener("click", function () {
+    openServiceComparisonModal();
+  });
+
+  // Service selection buttons in modal
+  document.querySelectorAll(".service-selection-button").forEach((button) => {
+    button.addEventListener("click", function () {
+      const service = this.getAttribute("data-service");
+      const column =
+        this.closest(".selection-column").querySelector("h4").textContent;
+
+      if (column === "Primeiro Serviço") {
+        selectServiceForComparison(service, "first");
+      } else {
+        selectServiceForComparison(service, "second");
+      }
+
+      updateCompareSelectedButton();
+    });
+  });
+
+  // Compare selected services button
+  compareSelectedBtn.addEventListener("click", function () {
+    if (selectedServices.first && selectedServices.second) {
+      serviceComparisonModal.classList.remove("active");
+      switchToServiceComparisonView(
+        selectedServices.first,
+        selectedServices.second
+      );
+    }
+  });
+
+  // Clear comparison selection
+  clearComparisonBtn.addEventListener("click", function () {
+    clearServiceComparisonSelection();
+  });
+
+  function selectServiceForComparison(service, position) {
+    // Deselect previous selection in this position
+    document
+      .querySelectorAll(
+        `#${position}-service-selection .service-selection-button`
+      )
+      .forEach((btn) => {
+        btn.classList.remove("selected");
+      });
+
+    // Select new service
+    document
+      .querySelector(
+        `#${position}-service-selection .service-selection-button[data-service="${service}"]`
+      )
+      .classList.add("selected");
+
+    // Update selected services
+    selectedServices[position] = service;
+  }
+
+  function clearServiceComparisonSelection() {
+    selectedServices = { first: null, second: null };
+    document.querySelectorAll(".service-selection-button").forEach((btn) => {
+      btn.classList.remove("selected");
+    });
+    updateCompareSelectedButton();
+  }
+
+  function updateCompareSelectedButton() {
+    compareSelectedBtn.disabled = !(
+      selectedServices.first && selectedServices.second
+    );
+  }
+
+  function openServiceComparisonModal() {
+    serviceComparisonModal.classList.add("active");
+    clearServiceComparisonSelection();
+  }
 
   function loadServiceContentSingle(service) {
     const template = serviceTemplates[service];
@@ -870,9 +967,27 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  function switchToComparisonView() {
+  function switchToServiceComparisonView(firstService, secondService) {
     singleView.classList.remove("active");
-    comparisonView.classList.add("active");
+    serviceComparisonView.classList.add("active");
+    nifComparisonView.classList.remove("active");
+
+    // Load services content
+    const firstTemplate = serviceTemplates[firstService];
+    const secondTemplate = serviceTemplates[secondService];
+
+    if (firstTemplate && secondTemplate) {
+      firstServiceContent.innerHTML = firstTemplate.content;
+      secondServiceContent.innerHTML = secondTemplate.content;
+      firstServiceTitle.textContent = firstTemplate.title;
+      secondServiceTitle.textContent = secondTemplate.title;
+    }
+  }
+
+  function switchToNifComparisonView() {
+    singleView.classList.remove("active");
+    serviceComparisonView.classList.remove("active");
+    nifComparisonView.classList.add("active");
 
     // Load current service in current NIF column if available
     if (currentService) {
@@ -889,14 +1004,20 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   function switchToSingleView() {
-    comparisonView.classList.remove("active");
     singleView.classList.add("active");
+    serviceComparisonView.classList.remove("active");
+    nifComparisonView.classList.remove("active");
     selectedNifForComparison = null;
     compareNifDisplay.textContent = "-";
     compareNifBtn.disabled = true;
     nifSearchInput.value = "";
     searchResults.style.display = "none";
   }
+
+  // Remove service comparison
+  removeServiceComparisonBtn.addEventListener("click", function () {
+    switchToSingleView();
+  });
 
   // NIF Search functionality
   nifSearchInput.addEventListener("input", function () {
@@ -950,7 +1071,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Compare NIFs button
   compareNifBtn.addEventListener("click", function () {
     if (selectedNifForComparison && selectedNifForComparison !== currentNif) {
-      switchToComparisonView();
+      switchToNifComparisonView();
     }
   });
 
@@ -962,8 +1083,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // Generate Report button
   generateReportBtn.addEventListener("click", function () {
     showNotification("Relatório gerado com sucesso!", "success");
-    // In a real application, this would trigger a report generation process
-    // and potentially download a file or open a new window with the report
   });
 
   // Modal functionality
@@ -978,6 +1097,7 @@ document.addEventListener("DOMContentLoaded", function () {
   closeModalBtns.forEach((btn) => {
     btn.addEventListener("click", function () {
       inconsistenciesModal.classList.remove("active");
+      serviceComparisonModal.classList.remove("active");
     });
   });
 
@@ -985,6 +1105,7 @@ document.addEventListener("DOMContentLoaded", function () {
   document.addEventListener("click", function (e) {
     if (e.target.classList.contains("modal")) {
       inconsistenciesModal.classList.remove("active");
+      serviceComparisonModal.classList.remove("active");
     }
   });
 
@@ -1103,8 +1224,14 @@ document.addEventListener("DOMContentLoaded", function () {
       top: 20px;
       right: 20px;
       padding: 12px 20px;
-      background: ${type === "success" ? "#28a745" : "#dc3545"};
-      color: white;
+      background: ${
+        type === "success"
+          ? "#28a745"
+          : type === "warning"
+          ? "#ffc107"
+          : "#dc3545"
+      };
+      color: ${type === "warning" ? "#333" : "white"};
       border-radius: 6px;
       z-index: 10000;
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
