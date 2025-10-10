@@ -73,6 +73,22 @@ header {
   gap: 20px;
 }
 
+.folder-icon-link {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.folder-icon-link .folder-icon {
+  color: white;
+  transition: background-color 0.3s;
+}
+
+.folder-icon-link .folder-icon:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
 .folder-icon {
   font-size: 20px;
   cursor: pointer;
@@ -83,6 +99,10 @@ header {
 
 .folder-icon:hover {
   background-color: rgba(255, 255, 255, 0.1);
+}
+
+.folder-icon.active {
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .notification-dropdown {
@@ -257,6 +277,24 @@ header {
 
 .book-emoji.active {
     background-color: rgba(255, 255, 255, 0.2);
+}
+
+.book-emoji a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.book-emoji.active {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.book-emoji:hover {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .user-dropdown {
@@ -554,65 +592,6 @@ footer {
   border-top: 1px solid var(--border);
 }
 
-@media (max-width: 768px) {
-  .dashboard-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .welcome-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .cases-button {
-    align-self: stretch;
-    text-align: center;
-    justify-content: center;
-  }
-
-  .cases-container {
-    flex-direction: column;
-  }
-
-  .case-item {
-    margin-bottom: 15px;
-  }
-
-  .header-content {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .header-right {
-    width: 100%;
-    justify-content: space-between;
-  }
-
-  .notification-menu {
-    width: 320px;
-    right: -50%;
-  }
-}
-
-/* Estilo para o ícone do livro como link */
-.book-emoji a {
-    color: white;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-}
-
-.book-emoji.active {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-.book-emoji:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-}
-
 /* Back Button Styles */
 .back-button {
     display: inline-flex;
@@ -655,4 +634,150 @@ footer {
 .page-title p {
     color: #666;
     font-size: 16px;
+}
+
+/* Estilos para a página de relatórios */
+.reports-list .card {
+    padding: 0;
+}
+
+.reports-list .card h2 {
+    padding: 25px 25px 20px 25px;
+    margin: 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--primary);
+    font-size: 20px;
+}
+
+.report-item {
+    display: flex;
+    align-items: center;
+    padding: 20px 25px;
+    border-bottom: 1px solid var(--border);
+    transition: background-color 0.3s;
+}
+
+.report-item:last-child {
+    border-bottom: none;
+}
+
+.report-item:hover {
+    background-color: var(--secondary);
+}
+
+.report-icon {
+    font-size: 24px;
+    color: #e74c3c;
+    margin-right: 20px;
+    width: 40px;
+    text-align: center;
+}
+
+.report-details {
+    flex: 1;
+}
+
+.report-details h3 {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: var(--text);
+}
+
+.report-details p {
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.report-meta {
+    display: flex;
+    gap: 15px;
+    font-size: 12px;
+    color: #888;
+}
+
+.report-actions {
+    margin-left: 15px;
+}
+
+.download-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--primary);
+    color: white;
+    text-decoration: none;
+    padding: 10px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.download-button:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 86, 166, 0.3);
+}
+
+@media (max-width: 768px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .welcome-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .cases-button {
+        align-self: stretch;
+        text-align: center;
+        justify-content: center;
+    }
+
+    .cases-container {
+        flex-direction: column;
+    }
+
+    .case-item {
+        margin-bottom: 15px;
+    }
+
+    .header-content {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .header-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+
+    .notification-menu {
+        width: 320px;
+        right: -50%;
+    }
+
+    .report-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .report-actions {
+        margin-left: 0;
+        margin-top: 15px;
+        align-self: flex-end;
+    }
+}
+
+.report-nif {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary);
+    margin-bottom: 8px;
+    padding: 4px 8px;
+    background-color: var(--secondary);
+    border-radius: 4px;
+    display: inline-block;
 }

@@ -3,13 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Autoridade Tributária - Ponto de Situação</title>
+    <title>Autoridade Tributária - Relatórios Anteriores</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
     <link rel="stylesheet" href="styles.css" />
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   </head>
   <body>
     <header>
@@ -23,7 +22,7 @@
           </div>
           <div class="header-right">
             <a href="relatorios.html" class="folder-icon-link">
-              <div class="folder-icon">
+              <div class="folder-icon active">
                 <i class="fas fa-folder"></i>
               </div>
             </a>
@@ -87,38 +86,6 @@
                       </div>
                     </div>
                   </div>
-                  <div class="notification-item">
-                    <div class="notification-icon">
-                      <i class="fas fa-file-pen"></i>
-                    </div>
-                    <div class="notification-content">
-                      <div class="notification-title">Documento modificado</div>
-                      <div class="notification-details">
-                        <span class="nif">NIF: 512587963</span>
-                        <span class="time">Ontem, 14:20</span>
-                      </div>
-                      <div class="notification-description">
-                        Ficha de trabalho atualizada
-                      </div>
-                    </div>
-                  </div>
-                  <div class="notification-item">
-                    <div class="notification-icon">
-                      <i class="fas fa-file-circle-plus"></i>
-                    </div>
-                    <div class="notification-content">
-                      <div class="notification-title">
-                        Novo documento adicionado
-                      </div>
-                      <div class="notification-details">
-                        <span class="nif">NIF: 516321489</span>
-                        <span class="time">12 Jan, 09:30</span>
-                      </div>
-                      <div class="notification-description">
-                        Contrato de prestação de serviços
-                      </div>
-                    </div>
-                  </div>
                 </div>
                 <div class="notification-footer">
                   <a href="#" class="view-all-link"
@@ -160,90 +127,105 @@
     </header>
 
     <div class="container">
-      <section class="welcome-section">
-        <div class="welcome-header">
-          <div class="welcome-text">
-            <h1>Olá Antónia,</h1>
-            <p>Visualiza aqui o teu ponto de situação</p>
-          </div>
-          <a href="casos.html" class="cases-button">
-            <i class="fas fa-folder-open"></i>
-            Casos Ativos
-          </a>
+      <div class="page-header">
+        <div class="page-title">
+          <h1>Relatórios Anteriores</h1>
+          <p>Consulte e faça download dos relatórios de casos anteriores</p>
         </div>
-      </section>
+        <a href="dashboard.html" class="back-button">
+          <i class="fas fa-arrow-left"></i>
+          Voltar ao Dashboard
+        </a>
+      </div>
 
-      <section class="dashboard-grid">
+      <section class="reports-list">
         <div class="card">
-          <h2>Equipa</h2>
-          <div class="team-member">
-            <div class="member-avatar">A</div>
-            <div class="member-info">
-              <h3>Ana Pinheiro</h3>
-              <p>Inspetor</p>
+          <h2>Relatórios Submetidos</h2>
+          <div class="report-item">
+            <div class="report-icon">
+              <i class="fas fa-file-pdf"></i>
+            </div>
+            <div class="report-details">
+              <h3>Relatório Anual 2024</h3>
+              <div class="report-nif">NIF: 517466735</div>
+              <p>
+                Relatório consolidado de todos os casos encerrados no ano de
+                2024
+              </p>
+              <div class="report-meta">
+                <span class="report-date">Publicado em: 15/01/2025</span>
+                <span class="report-size">Tamanho: 2.4 MB</span>
+              </div>
+            </div>
+            <div class="report-actions">
+              <a href="#" class="download-button">
+                <i class="fas fa-download"></i>
+                Download
+              </a>
             </div>
           </div>
-          <div class="team-member">
-            <div class="member-avatar">D</div>
-            <div class="member-info">
-              <h3>Diogo Rato</h3>
-              <p>Inspetor</p>
-            </div>
-          </div>
-          <div class="team-member">
-            <div class="member-avatar">B</div>
-            <div class="member-info">
-              <h3>Bernardo Ricardo</h3>
-              <p>Inspetor</p>
-            </div>
-          </div>
-        </div>
 
-        <div class="card">
-          <h2>Casos Ativos</h2>
-          <div class="cases-container">
-            <div class="case-item">
-              <div class="case-count">6</div>
-              <div class="case-label">Ana Pinheiro</div>
+          <div class="report-item">
+            <div class="report-icon">
+              <i class="fas fa-file-pdf"></i>
             </div>
-            <div class="case-item">
-              <div class="case-count">13</div>
-              <div class="case-label">Diogo Rato</div>
+            <div class="report-details">
+              <h3>Relatório Trimestral - 4º Trimestre 2024</h3>
+              <div class="report-nif">NIF: 516298451</div>
+              <p>Relatório de casos do último trimestre de 2024</p>
+              <div class="report-meta">
+                <span class="report-date">Publicado em: 10/01/2025</span>
+                <span class="report-size">Tamanho: 1.8 MB</span>
+              </div>
             </div>
-            <div class="case-item">
-              <div class="case-count">9</div>
-              <div class="case-label">Bernardo Ricardo</div>
+            <div class="report-actions">
+              <a href="#" class="download-button">
+                <i class="fas fa-download"></i>
+                Download
+              </a>
             </div>
           </div>
-        </div>
-      </section>
 
-      <section class="charts-container">
-        <div class="chart-card">
-          <h3 class="chart-title">Distribuição de Casos</h3>
-          <div class="chart-container">
-            <canvas id="casesChart"></canvas>
+          <div class="report-item">
+            <div class="report-icon">
+              <i class="fas fa-file-pdf"></i>
+            </div>
+            <div class="report-details">
+              <h3>Relatório de Auditoria - Caso 245</h3>
+              <div class="report-nif">NIF: 217745163</div>
+              <p>Relatório detalhado do processo de auditoria do caso 245</p>
+              <div class="report-meta">
+                <span class="report-date">Publicado em: 05/01/2025</span>
+                <span class="report-size">Tamanho: 3.2 MB</span>
+              </div>
+            </div>
+            <div class="report-actions">
+              <a href="#" class="download-button">
+                <i class="fas fa-download"></i>
+                Download
+              </a>
+            </div>
           </div>
-          <div class="stats-grid">
-            <div class="stat-item">
-              <div class="stat-value">33%</div>
-              <div class="stat-label">Casos por abrir</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-value">44%</div>
-              <div class="stat-label">Casos em aberto</div>
-            </div>
-            <div class="stat-item">
-              <div class="stat-value">23%</div>
-              <div class="stat-label">Casos concluídos</div>
-            </div>
-          </div>
-        </div>
 
-        <div class="chart-card">
-          <h3 class="chart-title">Progresso Mensal</h3>
-          <div class="chart-container">
-            <canvas id="progressChart"></canvas>
+          <div class="report-item">
+            <div class="report-icon">
+              <i class="fas fa-file-pdf"></i>
+            </div>
+            <div class="report-details">
+              <h3>Relatório Semestral 2024</h3>
+              <div class="report-nif">NIF: 512587963</div>
+              <p>Relatório de atividades do primeiro semestre de 2024</p>
+              <div class="report-meta">
+                <span class="report-date">Publicado em: 20/12/2024</span>
+                <span class="report-size">Tamanho: 2.1 MB</span>
+              </div>
+            </div>
+            <div class="report-actions">
+              <a href="#" class="download-button">
+                <i class="fas fa-download"></i>
+                Download
+              </a>
+            </div>
           </div>
         </div>
       </section>
