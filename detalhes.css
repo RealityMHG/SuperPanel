@@ -88,7 +88,7 @@ header {
 }
 
 .book-emoji.active {
-    background-color: rgba(255, 255, 255, 0.2);
+  background-color: rgba(255, 255, 255, 0.2);
 }
 
 .folder-icon:hover,
@@ -426,6 +426,71 @@ header {
 .compare-services-btn:hover {
   background-color: var(--primary-dark);
   transform: translateY(-2px);
+}
+
+/* Download Button Styles */
+.download-service-btn {
+  background-color: var(--success);
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.download-service-btn:hover {
+  background-color: #218838;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+}
+
+.download-section-btn {
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+}
+
+.download-section-btn.compact {
+  padding: 8px 12px;
+  font-size: 12px;
+}
+
+.download-section-btn:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-1px);
+}
+
+.section-header-with-download {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.section-header-with-download h3 {
+  margin: 0;
+  color: var(--primary);
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 /* NIF Search */
@@ -772,6 +837,8 @@ header {
   margin-bottom: 30px;
   padding-bottom: 20px;
   border-bottom: 2px solid var(--border);
+  flex-wrap: wrap;
+  gap: 20px;
 }
 
 .service-header h2 {
@@ -867,6 +934,39 @@ header {
   background-color: var(--secondary);
 }
 
+/* Action buttons in tables */
+.action-btn {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  background: var(--white);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s;
+  color: var(--primary);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 36px;
+  height: 36px;
+}
+
+.action-btn:hover {
+  background-color: var(--primary);
+  color: white;
+  border-color: var(--primary);
+  transform: translateY(-1px);
+}
+
+.download-doc-btn {
+  background-color: var(--success);
+  color: white;
+  border: none;
+}
+
+.download-doc-btn:hover {
+  background-color: #218838;
+}
+
 /* Metrics Grid */
 .metrics-grid {
   display: grid;
@@ -957,21 +1057,6 @@ header {
   gap: 8px;
 }
 
-.action-btn {
-  padding: 8px;
-  border: 1px solid var(--border);
-  background: none;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: all 0.3s;
-  color: var(--primary);
-}
-
-.action-btn:hover {
-  background-color: var(--primary);
-  color: white;
-}
-
 /* Info Grid */
 .info-grid {
   display: grid;
@@ -1052,7 +1137,7 @@ header {
   gap: 10px;
   background-color: var(--primary);
   color: white;
-  border: none;
+  text-decoration: none;
   padding: 12px 24px;
   border-radius: 8px;
   font-weight: 600;
@@ -1547,6 +1632,16 @@ footer {
   .comparison-selection {
     grid-template-columns: 1fr;
     gap: 20px;
+  }
+
+  .service-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .section-header-with-download {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 

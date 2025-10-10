@@ -1,15 +1,15 @@
 // Sample NIF database for search
 const nifDatabase = [
-  { nif: "517466735", name: "Tech Solutions Lda", score: 85 },
-  { nif: "516298451", name: "Global Import Export SA", score: 42 },
-  { nif: "217745163", name: "Construções Modernas Lda", score: 67 },
-  { nif: "512587963", name: "Auto Motors Portugal", score: 91 },
-  { nif: "516321489", name: "Consultoria Financeira SA", score: 28 },
-  { nif: "216874125", name: "Distribuição Nacional Lda", score: 74 },
-  { nif: "217236977", name: "Serviços Digitais SA", score: 53 },
-  { nif: "213852369", name: "Indústria Transformadora Lda", score: 36 },
-  { nif: "519874123", name: "Comércio Internacional SA", score: 88 },
-  { nif: "218963547", name: "Transportes Rápidos Lda", score: 61 },
+  { nif: "517466735", name: "Tech Solutions Lda", score: 8.5 },
+  { nif: "516298451", name: "Global Import Export SA", score: 4.2 },
+  { nif: "217745163", name: "Construções Modernas Lda", score: 6.7 },
+  { nif: "512587963", name: "Auto Motors Portugal", score: 9.1 },
+  { nif: "516321489", name: "Consultoria Financeira SA", score: 2.8 },
+  { nif: "216874125", name: "Distribuição Nacional Lda", score: 7.4 },
+  { nif: "217236977", name: "Serviços Digitais SA", score: 5.3 },
+  { nif: "213852369", name: "Indústria Transformadora Lda", score: 3.6 },
+  { nif: "519874123", name: "Comércio Internacional SA", score: 8.8 },
+  { nif: "218963547", name: "Transportes Rápidos Lda", score: 6.1 },
 ];
 
 // Service data templates based on the image provided
@@ -21,6 +21,9 @@ const serviceTemplates = {
       <div class="service-content">
         <div class="service-header">
           <h2><i class="fas fa-home"></i> Património</h2>
+          <button class="download-service-btn" data-service="patrimonio">
+            <i class="fas fa-download"></i> Descarregar Relatório
+          </button>
         </div>
         <div class="service-sections">
           <div class="service-section">
@@ -52,6 +55,7 @@ const serviceTemplates = {
                     <th>Tipo</th>
                     <th>Descrição</th>
                     <th>Valor</th>
+                    <th>Ações</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -59,21 +63,41 @@ const serviceTemplates = {
                     <td>Imóvel</td>
                     <td>Apartamento T3, Lisboa</td>
                     <td>€ 350.000</td>
+                    <td>
+                      <button class="action-btn download-doc-btn" data-doc="imovel_lisboa.pdf">
+                        <i class="fas fa-download"></i>
+                      </button>
+                    </td>
                   </tr>
                   <tr>
                     <td>Imóvel</td>
                     <td>Loja Comercial, Porto</td>
                     <td>€ 220.000</td>
+                    <td>
+                      <button class="action-btn download-doc-btn" data-doc="loja_porto.pdf">
+                        <i class="fas fa-download"></i>
+                      </button>
+                    </td>
                   </tr>
                   <tr>
                     <td>Veículo</td>
                     <td>VW Golf, 2020</td>
                     <td>€ 25.000</td>
+                    <td>
+                      <button class="action-btn download-doc-btn" data-doc="vw_golf.pdf">
+                        <i class="fas fa-download"></i>
+                      </button>
+                    </td>
                   </tr>
                   <tr>
                     <td>Renda</td>
                     <td>Apartamento T2, Aveiro</td>
                     <td>€ 650/mês</td>
+                    <td>
+                      <button class="action-btn download-doc-btn" data-doc="renda_aveiro.pdf">
+                        <i class="fas fa-download"></i>
+                      </button>
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -90,6 +114,9 @@ const serviceTemplates = {
       <div class="service-content">
         <div class="service-header">
           <h2><i class="fas fa-file-invoice-dollar"></i> Dívidas Fiscais</h2>
+          <button class="download-service-btn" data-service="dividas-fiscais">
+            <i class="fas fa-download"></i> Descarregar Relatório
+          </button>
         </div>
         <div class="service-sections">
           <div class="service-section">
@@ -122,6 +149,7 @@ const serviceTemplates = {
                     <th>Tipo</th>
                     <th>Valor</th>
                     <th>Data Vencimento</th>
+                    <th>Ações</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -130,18 +158,33 @@ const serviceTemplates = {
                     <td>IVA</td>
                     <td>€ 5.250</td>
                     <td>15/04/2024</td>
+                    <td>
+                      <button class="action-btn download-doc-btn" data-doc="divida_iva_2023.pdf">
+                        <i class="fas fa-download"></i>
+                      </button>
+                    </td>
                   </tr>
                   <tr>
                     <td>2023</td>
                     <td>IRS</td>
                     <td>€ 3.500</td>
                     <td>31/07/2024</td>
+                    <td>
+                      <button class="action-btn download-doc-btn" data-doc="divida_irs_2023.pdf">
+                        <i class="fas fa-download"></i>
+                      </button>
+                    </td>
                   </tr>
                   <tr>
                     <td>2022</td>
                     <td>IRC</td>
                     <td>€ 3.700</td>
                     <td>15/05/2023</td>
+                    <td>
+                      <button class="action-btn download-doc-btn" data-doc="divida_irc_2022.pdf">
+                        <i class="fas fa-download"></i>
+                      </button>
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -158,6 +201,9 @@ const serviceTemplates = {
       <div class="service-content">
         <div class="service-header">
           <h2><i class="fas fa-file-alt"></i> Declarações Entregues</h2>
+          <button class="download-service-btn" data-service="declaracoes">
+            <i class="fas fa-download"></i> Descarregar Relatório
+          </button>
         </div>
         <div class="service-sections">
           <div class="service-section">
@@ -190,6 +236,7 @@ const serviceTemplates = {
                     <th>Período</th>
                     <th>Data Entrega</th>
                     <th>Valor</th>
+                    <th>Ações</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -198,24 +245,44 @@ const serviceTemplates = {
                     <td>2023</td>
                     <td>15/03/2024</td>
                     <td>€ 6.840</td>
+                    <td>
+                      <button class="action-btn download-doc-btn" data-doc="declaracao_irs_2023.pdf">
+                        <i class="fas fa-download"></i>
+                      </button>
+                    </td>
                   </tr>
                   <tr>
                     <td>IVA</td>
                     <td>1T 2024</td>
                     <td>15/04/2024</td>
                     <td>€ 2.450</td>
+                    <td>
+                      <button class="action-btn download-doc-btn" data-doc="declaracao_iva_1t2024.pdf">
+                        <i class="fas fa-download"></i>
+                      </button>
+                    </td>
                   </tr>
                   <tr>
                     <td>IRC</td>
                     <td>2023</td>
                     <td>15/05/2024</td>
                     <td>-</td>
+                    <td>
+                      <button class="action-btn download-doc-btn" data-doc="declaracao_irc_2023.pdf">
+                        <i class="fas fa-download"></i>
+                      </button>
+                    </td>
                   </tr>
                   <tr>
                     <td>Modelo 10</td>
                     <td>1T 2024</td>
                     <td>20/04/2024</td>
                     <td>€ 1.250</td>
+                    <td>
+                      <button class="action-btn download-doc-btn" data-doc="modelo_10_1t2024.pdf">
+                        <i class="fas fa-download"></i>
+                      </button>
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -232,6 +299,9 @@ const serviceTemplates = {
       <div class="service-content">
         <div class="service-header">
           <h2><i class="fas fa-database"></i> Sistema Cadastral</h2>
+          <button class="download-service-btn" data-service="sistema-cadastral">
+            <i class="fas fa-download"></i> Descarregar Relatório
+          </button>
         </div>
         <div class="service-sections">
           <div class="service-section">
@@ -258,6 +328,11 @@ const serviceTemplates = {
                 <span class="info-value">Maria Santos & Associados</span>
               </div>
             </div>
+            <div style="margin-top: 20px;">
+              <button class="action-btn download-doc-btn" data-doc="certidao_permanente.pdf" style="padding: 10px 20px;">
+                <i class="fas fa-download"></i> Descarregar Sistema Cadastral
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -270,6 +345,9 @@ const serviceTemplates = {
       <div class="service-content">
         <div class="service-header">
           <h2><i class="fas fa-certificate"></i> Certidão Permanente</h2>
+          <button class="download-service-btn" data-service="certidao-permanente">
+            <i class="fas fa-download"></i> Descarregar Relatório
+          </button>
         </div>
         <div class="service-sections">
           <div class="service-section">
@@ -282,6 +360,7 @@ const serviceTemplates = {
                     <th>Participação</th>
                     <th>Tipo</th>
                     <th>Data Início</th>
+                    <th>Ações</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -290,12 +369,22 @@ const serviceTemplates = {
                     <td>60%</td>
                     <td>Sócio Gerente</td>
                     <td>15/03/2018</td>
+                    <td>
+                      <button class="action-btn download-doc-btn" data-doc="socio_joao_silva.pdf">
+                        <i class="fas fa-download"></i>
+                      </button>
+                    </td>
                   </tr>
                   <tr>
                     <td>Ana Paula Costa</td>
                     <td>40%</td>
                     <td>Sócio</td>
                     <td>15/03/2018</td>
+                    <td>
+                      <button class="action-btn download-doc-btn" data-doc="socio_ana_costa.pdf">
+                        <i class="fas fa-download"></i>
+                      </button>
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -310,6 +399,7 @@ const serviceTemplates = {
                     <th>Nome</th>
                     <th>Cargo</th>
                     <th>Data Nomeação</th>
+                    <th>Ações</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -317,11 +407,21 @@ const serviceTemplates = {
                     <td>João Miguel Silva</td>
                     <td>Gerente</td>
                     <td>15/03/2018</td>
+                    <td>
+                      <button class="action-btn download-doc-btn" data-doc="gerente_joao_silva.pdf">
+                        <i class="fas fa-download"></i>
+                      </button>
+                    </td>
                   </tr>
                   <tr>
                     <td>Carlos Manuel Alves</td>
                     <td>Administrador</td>
                     <td>10/06/2022</td>
+                    <td>
+                      <button class="action-btn download-doc-btn" data-doc="admin_carlos_alves.pdf">
+                        <i class="fas fa-download"></i>
+                      </button>
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -338,6 +438,9 @@ const serviceTemplates = {
       <div class="service-content">
         <div class="service-header">
           <h2><i class="fas fa-file-contract"></i> Declarações Acessórias</h2>
+          <button class="download-service-btn" data-service="declaracoes-acessorias">
+            <i class="fas fa-download"></i> Descarregar Relatório
+          </button>
         </div>
         <div class="service-sections">
           <div class="service-section">
@@ -370,6 +473,7 @@ const serviceTemplates = {
                     <th>Período</th>
                     <th>Data</th>
                     <th>Valor</th>
+                    <th>Ações</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -378,24 +482,44 @@ const serviceTemplates = {
                     <td>1T 2024</td>
                     <td>30/04/2024</td>
                     <td>€ 8.250</td>
+                    <td>
+                      <button class="action-btn download-doc-btn" data-doc="pagamentos_exterior_1t2024.pdf">
+                        <i class="fas fa-download"></i>
+                      </button>
+                    </td>
                   </tr>
                   <tr>
                     <td>Dividendos</td>
                     <td>2023</td>
                     <td>31/03/2024</td>
                     <td>€ 12.580</td>
+                    <td>
+                      <button class="action-btn download-doc-btn" data-doc="dividendos_2023.pdf">
+                        <i class="fas fa-download"></i>
+                      </button>
+                    </td>
                   </tr>
                   <tr>
                     <td>Atos</td>
                     <td>1T 2024</td>
                     <td>30/04/2024</td>
                     <td>€ 5.200</td>
+                    <td>
+                      <button class="action-btn download-doc-btn" data-doc="atos_1t2024.pdf">
+                        <i class="fas fa-download"></i>
+                      </button>
+                    </td>
                   </tr>
                   <tr>
                     <td>Retenções</td>
                     <td>1T 2024</td>
                     <td>20/04/2024</td>
                     <td>€ 1.250</td>
+                    <td>
+                      <button class="action-btn download-doc-btn" data-doc="retencoes_1t2024.pdf">
+                        <i class="fas fa-download"></i>
+                      </button>
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -412,6 +536,9 @@ const serviceTemplates = {
       <div class="service-content">
         <div class="service-header">
           <h2><i class="fas fa-exchange-alt"></i> VIES - Sistema de Trocas Intracomunitárias</h2>
+          <button class="download-service-btn" data-service="vies">
+            <i class="fas fa-download"></i> Descarregar Relatório
+          </button>
         </div>
         <div class="service-sections">
           <div class="service-section">
@@ -445,6 +572,7 @@ const serviceTemplates = {
                     <th>NIF Parceiro</th>
                     <th>Valor</th>
                     <th>Tipo</th>
+                    <th>Ações</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -454,6 +582,11 @@ const serviceTemplates = {
                     <td>ESB82549973</td>
                     <td>€ 12.500</td>
                     <td>Aquisição</td>
+                    <td>
+                      <button class="action-btn download-doc-btn" data-doc="operacao_espanha_1504.pdf">
+                        <i class="fas fa-download"></i>
+                      </button>
+                    </td>
                   </tr>
                   <tr>
                     <td>28/03/2024</td>
@@ -461,6 +594,11 @@ const serviceTemplates = {
                     <td>FR83404833048</td>
                     <td>€ 8.750</td>
                     <td>Venda</td>
+                    <td>
+                      <button class="action-btn download-doc-btn" data-doc="operacao_franca_2803.pdf">
+                        <i class="fas fa-download"></i>
+                      </button>
+                    </td>
                   </tr>
                   <tr>
                     <td>10/03/2024</td>
@@ -468,6 +606,11 @@ const serviceTemplates = {
                     <td>DE136695976</td>
                     <td>€ 15.200</td>
                     <td>Aquisição</td>
+                    <td>
+                      <button class="action-btn download-doc-btn" data-doc="operacao_alemanha_1003.pdf">
+                        <i class="fas fa-download"></i>
+                      </button>
+                    </td>
                   </tr>
                   <tr>
                     <td>22/02/2024</td>
@@ -475,6 +618,11 @@ const serviceTemplates = {
                     <td>IT12345678901</td>
                     <td>€ 6.300</td>
                     <td>Venda</td>
+                    <td>
+                      <button class="action-btn download-doc-btn" data-doc="operacao_italia_2202.pdf">
+                        <i class="fas fa-download"></i>
+                      </button>
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -491,6 +639,9 @@ const serviceTemplates = {
       <div class="service-content">
         <div class="service-header">
           <h2><i class="fas fa-file-invoice"></i> E-Fatura</h2>
+          <button class="download-service-btn" data-service="e-fatura">
+            <i class="fas fa-download"></i> Descarregar Relatório
+          </button>
         </div>
         <div class="service-sections">
           <div class="service-section">
@@ -523,6 +674,7 @@ const serviceTemplates = {
                     <th>NIF</th>
                     <th>Valor Total</th>
                     <th>Nº Faturas</th>
+                    <th>Ações</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -531,24 +683,44 @@ const serviceTemplates = {
                     <td>516298451</td>
                     <td>€ 45.320</td>
                     <td>24</td>
+                    <td>
+                      <button class="action-btn download-doc-btn" data-doc="faturas_global_import.pdf">
+                        <i class="fas fa-download"></i>
+                      </button>
+                    </td>
                   </tr>
                   <tr>
                     <td>Construções Modernas Lda</td>
                     <td>217745163</td>
                     <td>€ 38.150</td>
                     <td>18</td>
+                    <td>
+                      <button class="action-btn download-doc-btn" data-doc="faturas_construcoes_modernas.pdf">
+                        <i class="fas fa-download"></i>
+                      </button>
+                    </td>
                   </tr>
                   <tr>
                     <td>Auto Motors Portugal</td>
                     <td>512587963</td>
                     <td>€ 22.840</td>
                     <td>12</td>
+                    <td>
+                      <button class="action-btn download-doc-btn" data-doc="faturas_auto_motors.pdf">
+                        <i class="fas fa-download"></i>
+                      </button>
+                    </td>
                   </tr>
                   <tr>
                     <td>Consultoria Financeira SA</td>
                     <td>516321489</td>
                     <td>€ 18.950</td>
                     <td>8</td>
+                    <td>
+                      <button class="action-btn download-doc-btn" data-doc="faturas_consultoria_financeira.pdf">
+                        <i class="fas fa-download"></i>
+                      </button>
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -564,6 +736,7 @@ const serviceTemplates = {
                     <th>NIF</th>
                     <th>Valor Total</th>
                     <th>Nº Faturas</th>
+                    <th>Ações</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -572,24 +745,44 @@ const serviceTemplates = {
                     <td>216874125</td>
                     <td>€ 32.580</td>
                     <td>28</td>
+                    <td>
+                      <button class="action-btn download-doc-btn" data-doc="faturas_distribuicao_nacional.pdf">
+                        <i class="fas fa-download"></i>
+                      </button>
+                    </td>
                   </tr>
                   <tr>
                     <td>Serviços Digitais SA</td>
                     <td>217236977</td>
                     <td>€ 25.430</td>
                     <td>15</td>
+                    <td>
+                      <button class="action-btn download-doc-btn" data-doc="faturas_servicos_digitais.pdf">
+                        <i class="fas fa-download"></i>
+                      </button>
+                    </td>
                   </tr>
                   <tr>
                     <td>Indústria Transformadora Lda</td>
                     <td>213852369</td>
                     <td>€ 18.750</td>
                     <td>9</td>
+                    <td>
+                      <button class="action-btn download-doc-btn" data-doc="faturas_industria_transformadora.pdf">
+                        <i class="fas fa-download"></i>
+                      </button>
+                    </td>
                   </tr>
                   <tr>
                     <td>Comércio Internacional SA</td>
                     <td>519874123</td>
                     <td>€ 12.690</td>
                     <td>6</td>
+                    <td>
+                      <button class="action-btn download-doc-btn" data-doc="faturas_comercio_internacional.pdf">
+                        <i class="fas fa-download"></i>
+                      </button>
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -606,6 +799,9 @@ const serviceTemplates = {
       <div class="service-content">
         <div class="service-header">
           <h2><i class="fas fa-credit-card"></i> MOD 40 - Bancos TPA</h2>
+          <button class="download-service-btn" data-service="mod40">
+            <i class="fas fa-download"></i> Descarregar Relatório
+          </button>
         </div>
         <div class="service-sections">
           <div class="service-section">
@@ -639,6 +835,7 @@ const serviceTemplates = {
                     <th>Nº Transações</th>
                     <th>Taxa Média</th>
                     <th>Última Atualização</th>
+                    <th>Ações</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -648,6 +845,11 @@ const serviceTemplates = {
                     <td>1.856</td>
                     <td>1.2%</td>
                     <td>30/04/2024</td>
+                    <td>
+                      <button class="action-btn download-doc-btn" data-doc="transacoes_bcp.pdf">
+                        <i class="fas fa-download"></i>
+                      </button>
+                    </td>
                   </tr>
                   <tr>
                     <td>Novo Banco</td>
@@ -655,6 +857,11 @@ const serviceTemplates = {
                     <td>985</td>
                     <td>1.4%</td>
                     <td>30/04/2024</td>
+                    <td>
+                      <button class="action-btn download-doc-btn" data-doc="transacoes_novo_banco.pdf">
+                        <i class="fas fa-download"></i>
+                      </button>
+                    </td>
                   </tr>
                   <tr>
                     <td>Caixa Geral de Depósitos</td>
@@ -662,6 +869,11 @@ const serviceTemplates = {
                     <td>512</td>
                     <td>1.1%</td>
                     <td>30/04/2024</td>
+                    <td>
+                      <button class="action-btn download-doc-btn" data-doc="transacoes_cgd.pdf">
+                        <i class="fas fa-download"></i>
+                      </button>
+                    </td>
                   </tr>
                   <tr>
                     <td>Santander Totta</td>
@@ -669,6 +881,11 @@ const serviceTemplates = {
                     <td>105</td>
                     <td>1.5%</td>
                     <td>30/04/2024</td>
+                    <td>
+                      <button class="action-btn download-doc-btn" data-doc="transacoes_santander.pdf">
+                        <i class="fas fa-download"></i>
+                      </button>
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -685,6 +902,9 @@ const serviceTemplates = {
       <div class="service-content">
         <div class="service-header">
           <h2><i class="fas fa-users"></i> DMR - Pagamentos a Funcionários</h2>
+          <button class="download-service-btn" data-service="dmr">
+            <i class="fas fa-download"></i> Descarregar Relatório
+          </button>
         </div>
         <div class="service-sections">
           <div class="service-section">
@@ -717,6 +937,7 @@ const serviceTemplates = {
                     <th>Cargo</th>
                     <th>Salário Mensal</th>
                     <th>Retenção IRS</th>
+                    <th>Ações</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -725,24 +946,44 @@ const serviceTemplates = {
                     <td>Gerente</td>
                     <td>€ 3.500</td>
                     <td>€ 850</td>
+                    <td>
+                      <button class="action-btn download-doc-btn" data-doc="recibo_joao_silva.pdf">
+                        <i class="fas fa-download"></i>
+                      </button>
+                    </td>
                   </tr>
                   <tr>
                     <td>Maria Santos</td>
                     <td>Contabilista</td>
                     <td>€ 2.200</td>
                     <td>€ 420</td>
+                    <td>
+                      <button class="action-btn download-doc-btn" data-doc="recibo_maria_santos.pdf">
+                        <i class="fas fa-download"></i>
+                      </button>
+                    </td>
                   </tr>
                   <tr>
                     <td>Carlos Almeida</td>
                     <td>Comercial</td>
                     <td>€ 1.800</td>
                     <td>€ 310</td>
+                    <td>
+                      <button class="action-btn download-doc-btn" data-doc="recibo_carlos_almeida.pdf">
+                        <i class="fas fa-download"></i>
+                      </button>
+                    </td>
                   </tr>
                   <tr>
                     <td>Ana Costa</td>
                     <td>Assistente</td>
                     <td>€ 1.150</td>
                     <td>€ 180</td>
+                    <td>
+                      <button class="action-btn download-doc-btn" data-doc="recibo_ana_costa.pdf">
+                        <i class="fas fa-download"></i>
+                      </button>
+                    </td>
                   </tr>
                 </tbody>
               </table>
@@ -804,6 +1045,88 @@ document.addEventListener("DOMContentLoaded", function () {
   currentNif = urlParams.get("nif") || "517466735";
   document.getElementById("nif-number").textContent = currentNif;
   currentNifDisplay.textContent = currentNif;
+
+  // Show all NIFs when search input is focused or clicked
+  nifSearchInput.addEventListener("focus", function () {
+    showAllNifsInSearch();
+  });
+
+  nifSearchInput.addEventListener("click", function () {
+    showAllNifsInSearch();
+  });
+
+  // Function to show all NIFs in search results
+  function showAllNifsInSearch() {
+    searchResults.innerHTML = "";
+
+    nifDatabase.forEach((nif) => {
+      const resultItem = document.createElement("div");
+      resultItem.className = "search-result-item";
+      resultItem.innerHTML = `
+        <div class="search-result-nif">NIF: ${nif.nif}</div>
+        <div class="search-result-name">${nif.name} (Score: ${nif.score})</div>
+      `;
+      resultItem.addEventListener("click", function () {
+        selectedNifForComparison = nif.nif;
+        compareNifDisplay.textContent = nif.nif;
+        nifSearchInput.value = `${nif.nif} - ${nif.name}`;
+        searchResults.style.display = "none";
+        compareNifBtn.disabled = false;
+      });
+      searchResults.appendChild(resultItem);
+    });
+
+    searchResults.style.display = "block";
+  }
+
+  // NIF Search functionality
+  nifSearchInput.addEventListener("input", function () {
+    const searchTerm = this.value.trim();
+    searchResults.innerHTML = "";
+
+    if (searchTerm.length === 0) {
+      showAllNifsInSearch();
+      return;
+    }
+
+    const filteredNifs = nifDatabase.filter(
+      (nif) =>
+        nif.nif.includes(searchTerm) ||
+        nif.name.toLowerCase().includes(searchTerm.toLowerCase())
+    );
+
+    if (filteredNifs.length > 0) {
+      filteredNifs.forEach((nif) => {
+        const resultItem = document.createElement("div");
+        resultItem.className = "search-result-item";
+        resultItem.innerHTML = `
+          <div class="search-result-nif">NIF: ${nif.nif}</div>
+          <div class="search-result-name">${nif.name} (Score: ${nif.score})</div>
+        `;
+        resultItem.addEventListener("click", function () {
+          selectedNifForComparison = nif.nif;
+          compareNifDisplay.textContent = nif.nif;
+          nifSearchInput.value = `${nif.nif} - ${nif.name}`;
+          searchResults.style.display = "none";
+          compareNifBtn.disabled = false;
+        });
+        searchResults.appendChild(resultItem);
+      });
+      searchResults.style.display = "block";
+    } else {
+      searchResults.style.display = "none";
+    }
+  });
+
+  // Close search results when clicking outside
+  document.addEventListener("click", function (e) {
+    if (
+      !nifSearchInput.contains(e.target) &&
+      !searchResults.contains(e.target)
+    ) {
+      searchResults.style.display = "none";
+    }
+  });
 
   // Service buttons functionality for single view
   document
@@ -919,6 +1242,9 @@ document.addEventListener("DOMContentLoaded", function () {
       currentNifDetails.innerHTML = template.content;
       currentService = service;
 
+      // Add download functionality
+      addDownloadFunctionality(currentNifDetails);
+
       // Update active state
       document
         .querySelectorAll("#current-nif-services .service-button")
@@ -941,6 +1267,9 @@ document.addEventListener("DOMContentLoaded", function () {
           ? comparisonCurrentContent
           : comparisonCompareContent;
       targetContainer.innerHTML = template.content;
+
+      // Add download functionality
+      addDownloadFunctionality(targetContainer);
 
       // Update active state
       const serviceGrid =
@@ -981,6 +1310,10 @@ document.addEventListener("DOMContentLoaded", function () {
       secondServiceContent.innerHTML = secondTemplate.content;
       firstServiceTitle.textContent = firstTemplate.title;
       secondServiceTitle.textContent = secondTemplate.title;
+
+      // Add download functionality to both service contents
+      addDownloadFunctionality(firstServiceContent);
+      addDownloadFunctionality(secondServiceContent);
     }
   }
 
@@ -1017,55 +1350,6 @@ document.addEventListener("DOMContentLoaded", function () {
   // Remove service comparison
   removeServiceComparisonBtn.addEventListener("click", function () {
     switchToSingleView();
-  });
-
-  // NIF Search functionality
-  nifSearchInput.addEventListener("input", function () {
-    const searchTerm = this.value.trim();
-    searchResults.innerHTML = "";
-
-    if (searchTerm.length < 2) {
-      searchResults.style.display = "none";
-      return;
-    }
-
-    const filteredNifs = nifDatabase.filter(
-      (nif) =>
-        nif.nif.includes(searchTerm) ||
-        nif.name.toLowerCase().includes(searchTerm.toLowerCase())
-    );
-
-    if (filteredNifs.length > 0) {
-      filteredNifs.forEach((nif) => {
-        const resultItem = document.createElement("div");
-        resultItem.className = "search-result-item";
-        resultItem.innerHTML = `
-          <div class="search-result-nif">NIF: ${nif.nif}</div>
-          <div class="search-result-name">${nif.name} (Score: ${nif.score})</div>
-        `;
-        resultItem.addEventListener("click", function () {
-          selectedNifForComparison = nif.nif;
-          compareNifDisplay.textContent = nif.nif;
-          nifSearchInput.value = `${nif.nif} - ${nif.name}`;
-          searchResults.style.display = "none";
-          compareNifBtn.disabled = false;
-        });
-        searchResults.appendChild(resultItem);
-      });
-      searchResults.style.display = "block";
-    } else {
-      searchResults.style.display = "none";
-    }
-  });
-
-  // Close search results when clicking outside
-  document.addEventListener("click", function (e) {
-    if (
-      !nifSearchInput.contains(e.target) &&
-      !searchResults.contains(e.target)
-    ) {
-      searchResults.style.display = "none";
-    }
   });
 
   // Compare NIFs button
@@ -1158,6 +1442,78 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
+  // Download functionality
+  function addDownloadFunctionality(container) {
+    // Service download buttons
+    const serviceDownloadBtns = container.querySelectorAll(
+      ".download-service-btn"
+    );
+    serviceDownloadBtns.forEach((btn) => {
+      btn.addEventListener("click", function () {
+        const service = this.getAttribute("data-service");
+        const nif = container.closest(".comparison-column")
+          ? container === comparisonCurrentContent
+            ? currentNif
+            : selectedNifForComparison
+          : currentNif;
+        downloadServiceReport(service, nif);
+      });
+    });
+
+    // Document download buttons
+    const docDownloadBtns = container.querySelectorAll(".download-doc-btn");
+    docDownloadBtns.forEach((btn) => {
+      btn.addEventListener("click", function () {
+        const docName = this.getAttribute("data-doc");
+        const nif = container.closest(".comparison-column")
+          ? container === comparisonCurrentContent
+            ? currentNif
+            : selectedNifForComparison
+          : currentNif;
+        downloadDocument(docName, nif);
+      });
+    });
+  }
+
+  function downloadServiceReport(service, nif) {
+    // Simulate file download
+    const filename = `relatorio_${service}_${nif}.pdf`;
+    showNotification(`A descarregar: ${filename}`, "success");
+
+    // In a real application, this would be an actual file download
+    // For demo purposes, we'll create a dummy download
+    const blob = new Blob([`Relatório de ${service} para NIF ${nif}`], {
+      type: "application/pdf",
+    });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
+  function downloadDocument(docName, nif) {
+    // Simulate file download
+    const filename = `${nif}_${docName}`;
+    showNotification(`A descarregar: ${filename}`, "success");
+
+    // In a real application, this would be an actual file download
+    const blob = new Blob([`Documento: ${docName} para NIF ${nif}`], {
+      type: "application/pdf",
+    });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
   // Sticky notes functionality
   const stickyNotesPanel = document.querySelector(".sticky-notes-panel");
   const toggleNotesBtn = document.querySelector(".toggle-notes-btn");
@@ -1199,12 +1555,15 @@ document.addEventListener("DOMContentLoaded", function () {
       const noteItem = document.createElement("div");
       noteItem.className = "note-item";
       noteItem.innerHTML = `
-        <div class="note-date">${dateString}</div>
-        <div class="note-text">${noteText}</div>
-      `;
+      <div class="note-date">${dateString}</div>
+      <div class="note-text">${noteText}</div>
+    `;
 
       savedNotesContainer.appendChild(noteItem);
       notesTextarea.value = "";
+
+      // Save notes to localStorage
+      saveNotesToLocalStorage();
 
       // Show success message
       showNotification("Nota guardada com sucesso!", "success");
@@ -1244,3 +1603,16 @@ document.addEventListener("DOMContentLoaded", function () {
     }, 3000);
   }
 });
+
+function saveNotesToLocalStorage() {
+  const noteItems = document.querySelectorAll(".note-item");
+  const notes = [];
+
+  noteItems.forEach((item) => {
+    const date = item.querySelector(".note-date").textContent;
+    const text = item.querySelector(".note-text").textContent;
+    notes.push({ date, text });
+  });
+
+  localStorage.setItem("taxNotes", JSON.stringify(notes));
+}

@@ -1,0 +1,1467 @@
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Autoridade Tributária - Relatório</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary: #0056a6;
+        --primary-dark: #003d7a;
+        --secondary: #e6f2ff;
+        --accent: #ff6b00;
+        --text: #333333;
+        --light-gray: #f5f5f5;
+        --border: #dddddd;
+        --white: #ffffff;
+        --success: #28a745;
+        --warning: #ffc107;
+        --danger: #dc3545;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: var(--light-gray);
+        color: var(--text);
+        line-height: 1.6;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      /* Header Styles */
+      header {
+        background-color: var(--primary);
+        padding: 15px 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        margin-bottom: 30px;
+        color: white;
+      }
+
+      .header-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 20px;
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+      }
+
+      .logo-icon {
+        background-color: rgba(255, 255, 255, 0.2);
+        color: white;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 15px;
+        font-size: 24px;
+      }
+
+      .logo-text {
+        font-size: 24px;
+        font-weight: 700;
+        color: white;
+      }
+
+      .header-right {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+      }
+
+      .folder-icon,
+      .notification-trigger,
+      .book-emoji {
+        font-size: 20px;
+        cursor: pointer;
+        padding: 8px;
+        border-radius: 50%;
+        transition: background-color 0.3s;
+      }
+
+      .folder-icon:hover,
+      .notification-trigger:hover,
+      .book-emoji:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      .notification-dropdown {
+        position: relative;
+      }
+
+      .notification-badge {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: var(--accent);
+        color: white;
+        border-radius: 50%;
+        width: 18px;
+        height: 18px;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+      }
+
+      .notification-menu {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: white;
+        width: 380px;
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+        z-index: 1001;
+      }
+
+      .notification-dropdown.active .notification-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .notification-header {
+        padding: 20px;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .notification-header h3 {
+        color: var(--primary);
+        margin: 0;
+        font-size: 18px;
+      }
+
+      .notification-count {
+        background-color: var(--accent);
+        color: white;
+        padding: 4px 8px;
+        border-radius: 12px;
+        font-size: 12px;
+        font-weight: 600;
+      }
+
+      .notification-list {
+        max-height: 400px;
+        overflow-y: auto;
+      }
+
+      .notification-item {
+        display: flex;
+        padding: 16px 20px;
+        border-bottom: 1px solid var(--border);
+        transition: background-color 0.3s;
+        cursor: pointer;
+      }
+
+      .notification-item:hover {
+        background-color: var(--secondary);
+      }
+
+      .notification-item.unread {
+        background-color: #f8fbff;
+        border-left: 3px solid var(--primary);
+      }
+
+      .notification-icon {
+        margin-right: 12px;
+        color: var(--primary);
+        font-size: 16px;
+        margin-top: 2px;
+      }
+
+      .notification-content {
+        flex: 1;
+      }
+
+      .notification-title {
+        font-weight: 600;
+        color: var(--text);
+        margin-bottom: 4px;
+        font-size: 14px;
+      }
+
+      .notification-details {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 4px;
+        font-size: 12px;
+      }
+
+      .nif {
+        color: var(--primary);
+        font-weight: 600;
+      }
+
+      .time {
+        color: #666;
+      }
+
+      .notification-description {
+        color: #666;
+        font-size: 13px;
+        line-height: 1.4;
+      }
+
+      .notification-footer {
+        padding: 16px 20px;
+        text-align: center;
+        border-top: 1px solid var(--border);
+      }
+
+      .view-all-link {
+        color: var(--primary);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 14px;
+        transition: color 0.3s;
+      }
+
+      .view-all-link:hover {
+        color: var(--primary-dark);
+      }
+
+      .user-dropdown {
+        position: relative;
+      }
+
+      .user-trigger {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        cursor: pointer;
+        padding: 8px 12px;
+        border-radius: 6px;
+        transition: background-color 0.3s;
+      }
+
+      .user-trigger:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      .user-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: rgba(255, 255, 255, 0.2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-weight: bold;
+      }
+
+      .user-trigger span {
+        font-weight: 500;
+      }
+
+      .user-trigger i {
+        font-size: 12px;
+        transition: transform 0.3s;
+      }
+
+      .user-dropdown.active .user-trigger i {
+        transform: rotate(180deg);
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: white;
+        min-width: 200px;
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+        z-index: 1000;
+      }
+
+      .user-dropdown.active .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
+
+      .dropdown-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 16px;
+        color: var(--text);
+        text-decoration: none;
+        transition: background-color 0.3s;
+      }
+
+      .dropdown-item:hover {
+        background-color: var(--light-gray);
+      }
+
+      .dropdown-item i {
+        width: 20px;
+        text-align: center;
+        color: var(--primary);
+      }
+
+      .dropdown-item.logout {
+        color: #e74c3c;
+      }
+
+      .dropdown-item.logout i {
+        color: #e74c3c;
+      }
+
+      .dropdown-divider {
+        height: 1px;
+        background-color: var(--border);
+        margin: 5px 0;
+      }
+
+      /* Page Header */
+      .page-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-bottom: 30px;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .page-title h1 {
+        color: var(--primary);
+        margin-bottom: 8px;
+        font-size: 32px;
+      }
+
+      .page-title p {
+        color: #666;
+        font-size: 16px;
+      }
+
+      .header-actions {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+
+      .action-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        font-size: 14px;
+      }
+
+      .back-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background-color: var(--white);
+        color: var(--primary);
+        text-decoration: none;
+        padding: 12px 20px;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        border: 2px solid var(--primary);
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      .back-button:hover {
+        background-color: var(--primary);
+        color: white;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 86, 166, 0.3);
+      }
+
+      .print-button {
+        background-color: var(--primary);
+        color: white;
+      }
+
+      .print-button:hover {
+        background-color: var(--primary-dark);
+        transform: translateY(-2px);
+      }
+
+      .edit-button {
+        background-color: var(--accent);
+        color: white;
+      }
+
+      .edit-button:hover {
+        background-color: #e55a00;
+        transform: translateY(-2px);
+      }
+
+      .save-button {
+        background-color: var(--success);
+        color: white;
+      }
+
+      .save-button:hover {
+        background-color: #218838;
+        transform: translateY(-2px);
+      }
+
+      /* Report Container */
+      .report-container {
+        background-color: var(--white);
+        border-radius: 12px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        margin-bottom: 30px;
+        overflow: hidden;
+      }
+
+      .report-header {
+        background-color: var(--primary);
+        color: white;
+        padding: 25px 30px;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .report-header h2 {
+        margin-bottom: 10px;
+        font-size: 24px;
+      }
+
+      .report-meta {
+        display: flex;
+        gap: 30px;
+        flex-wrap: wrap;
+        font-size: 14px;
+        opacity: 0.9;
+      }
+
+      .report-content {
+        padding: 30px;
+      }
+
+      .report-section {
+        margin-bottom: 30px;
+        position: relative;
+        border: 1px solid transparent;
+        border-radius: 8px;
+        padding: 15px;
+        transition: all 0.3s ease;
+      }
+
+      .report-section.editing {
+        border-color: var(--accent);
+        background-color: rgba(255, 107, 0, 0.05);
+      }
+
+      .report-section h3 {
+        color: var(--primary);
+        margin-bottom: 15px;
+        font-size: 18px;
+        border-bottom: 2px solid var(--primary);
+        padding-bottom: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .section-actions {
+        display: flex;
+        gap: 8px;
+      }
+
+      .section-action-btn {
+        background: none;
+        border: none;
+        color: var(--primary);
+        cursor: pointer;
+        font-size: 14px;
+        padding: 4px 8px;
+        border-radius: 4px;
+        transition: all 0.3s;
+      }
+
+      .section-action-btn:hover {
+        background-color: rgba(0, 86, 166, 0.1);
+      }
+
+      .template-content {
+        background-color: var(--light-gray);
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        line-height: 1.6;
+      }
+
+      .template-content p {
+        margin-bottom: 15px;
+      }
+
+      .template-content ul {
+        margin-left: 20px;
+        margin-bottom: 15px;
+      }
+
+      .template-content li {
+        margin-bottom: 8px;
+      }
+
+      .editable-content {
+        min-height: 100px;
+        padding: 15px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        background-color: var(--white);
+        font-family: inherit;
+        font-size: 14px;
+        line-height: 1.6;
+        resize: vertical;
+        width: 100%;
+      }
+
+      .editable-content:focus {
+        outline: none;
+        border-color: var(--primary);
+      }
+
+      .formatting-toolbar {
+        display: flex;
+        gap: 8px;
+        margin-bottom: 10px;
+        padding: 8px;
+        background-color: var(--light-gray);
+        border-radius: 6px;
+        flex-wrap: wrap;
+      }
+
+      .format-btn {
+        background: none;
+        border: 1px solid var(--border);
+        border-radius: 4px;
+        padding: 6px 10px;
+        cursor: pointer;
+        font-size: 12px;
+        transition: all 0.3s;
+      }
+
+      .format-btn:hover {
+        background-color: var(--secondary);
+      }
+
+      .format-btn.active {
+        background-color: var(--primary);
+        color: white;
+      }
+
+      .notes-content {
+        background-color: var(--secondary);
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+      }
+
+      .notes-content h4 {
+        color: var(--primary);
+        margin-bottom: 15px;
+        font-size: 16px;
+      }
+
+      .note-item {
+        padding: 12px;
+        background-color: var(--white);
+        border-radius: 6px;
+        margin-bottom: 10px;
+        border-left: 4px solid var(--accent);
+      }
+
+      .note-date {
+        font-size: 12px;
+        color: #666;
+        margin-bottom: 5px;
+      }
+
+      .note-text {
+        line-height: 1.4;
+      }
+
+      .additional-content {
+        margin-top: 30px;
+      }
+
+      .additional-content h4 {
+        color: var(--primary);
+        margin-bottom: 15px;
+        font-size: 16px;
+      }
+
+      .additional-textarea {
+        width: 100%;
+        min-height: 200px;
+        padding: 15px;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        font-family: inherit;
+        font-size: 14px;
+        line-height: 1.5;
+        resize: vertical;
+      }
+
+      .additional-textarea:focus {
+        outline: none;
+        border-color: var(--primary);
+      }
+
+      .add-section-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        width: 100%;
+        padding: 15px;
+        background-color: var(--light-gray);
+        border: 2px dashed var(--border);
+        border-radius: 8px;
+        color: var(--primary);
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+        margin-bottom: 20px;
+      }
+
+      .add-section-btn:hover {
+        background-color: var(--secondary);
+        border-color: var(--primary);
+      }
+
+      .section-type-selector {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 15px;
+      }
+
+      .section-type-btn {
+        flex: 1;
+        padding: 10px;
+        background-color: var(--light-gray);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        cursor: pointer;
+        text-align: center;
+        transition: all 0.3s;
+      }
+
+      .section-type-btn:hover {
+        background-color: var(--secondary);
+      }
+
+      .section-type-btn.active {
+        background-color: var(--primary);
+        color: white;
+        border-color: var(--primary);
+      }
+
+      .new-section-input {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        margin-bottom: 10px;
+        font-size: 16px;
+      }
+
+      .save-status {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        padding: 10px 15px;
+        background-color: var(--success);
+        color: white;
+        border-radius: 6px;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+        opacity: 0;
+        transform: translateY(10px);
+        transition: all 0.3s;
+      }
+
+      .save-status.show {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      footer {
+        text-align: center;
+        margin-top: 40px;
+        padding: 20px;
+        color: #666;
+        font-size: 14px;
+        border-top: 1px solid var(--border);
+      }
+
+      /* Print Styles */
+      @media print {
+        header,
+        .header-actions,
+        footer,
+        .section-actions,
+        .formatting-toolbar,
+        .add-section-btn {
+          display: none;
+        }
+
+        .container {
+          padding: 0;
+          max-width: none;
+        }
+
+        .report-container {
+          box-shadow: none;
+          border-radius: 0;
+        }
+
+        body {
+          background-color: white;
+        }
+
+        .report-section {
+          border: none !important;
+          background-color: transparent !important;
+        }
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .header-content {
+          flex-direction: column;
+          gap: 15px;
+        }
+
+        .header-right {
+          width: 100%;
+          justify-content: space-between;
+        }
+
+        .page-header {
+          flex-direction: column;
+        }
+
+        .header-actions {
+          flex-direction: column;
+          width: 100%;
+        }
+
+        .action-button {
+          width: 100%;
+          justify-content: center;
+        }
+
+        .back-button {
+          align-self: stretch;
+          text-align: center;
+          justify-content: center;
+        }
+
+        .report-meta {
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .notification-menu {
+          width: 320px;
+          right: -50%;
+        }
+
+        .section-actions {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .header-right {
+          gap: 10px;
+        }
+
+        .folder-icon,
+        .notification-trigger,
+        .book-emoji {
+          font-size: 18px;
+          padding: 6px;
+        }
+
+        .user-trigger span {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <div class="logo-icon">
+              <i class="fas fa-landmark"></i>
+            </div>
+            <div class="logo-text">Autoridade Tributária</div>
+          </div>
+          <div class="header-right">
+            <div class="folder-icon">
+              <i class="fas fa-folder"></i>
+            </div>
+            <div class="notification-dropdown">
+              <div class="notification-trigger">
+                <i class="fas fa-bell"></i>
+                <span class="notification-badge">3</span>
+              </div>
+              <div class="notification-menu">
+                <div class="notification-header">
+                  <h3>Notificações</h3>
+                  <span class="notification-count">3 novas</span>
+                </div>
+                <div class="notification-list">
+                  <div class="notification-item unread">
+                    <div class="notification-icon">
+                      <i class="fas fa-file-circle-plus"></i>
+                    </div>
+                    <div class="notification-content">
+                      <div class="notification-title">
+                        Novo documento adicionado
+                      </div>
+                      <div class="notification-details">
+                        <span class="nif">NIF: 517466735</span>
+                        <span class="time">Hoje, 14:30</span>
+                      </div>
+                      <div class="notification-description">
+                        Declaração de IVA do 1º trimestre
+                      </div>
+                    </div>
+                  </div>
+                  <div class="notification-item unread">
+                    <div class="notification-icon">
+                      <i class="fas fa-file-pen"></i>
+                    </div>
+                    <div class="notification-content">
+                      <div class="notification-title">Documento modificado</div>
+                      <div class="notification-details">
+                        <span class="nif">NIF: 516298451</span>
+                        <span class="time">Hoje, 11:15</span>
+                      </div>
+                      <div class="notification-description">
+                        Demonstração de resultados atualizada
+                      </div>
+                    </div>
+                  </div>
+                  <div class="notification-item unread">
+                    <div class="notification-icon">
+                      <i class="fas fa-file-circle-plus"></i>
+                    </div>
+                    <div class="notification-content">
+                      <div class="notification-title">
+                        Novo documento adicionado
+                      </div>
+                      <div class="notification-details">
+                        <span class="nif">NIF: 217745163</span>
+                        <span class="time">Ontem, 16:45</span>
+                      </div>
+                      <div class="notification-description">
+                        Recibos verdes do mês anterior
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="notification-footer">
+                  <a href="#" class="view-all-link"
+                    >Ver todas as notificações</a
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="book-emoji">
+              <i class="fas fa-book"></i>
+            </div>
+            <div class="user-dropdown">
+              <div class="user-trigger">
+                <div class="user-avatar">A</div>
+                <span>Antónia Silva</span>
+                <i class="fas fa-chevron-down"></i>
+              </div>
+              <div class="dropdown-menu">
+                <a href="#" class="dropdown-item">
+                  <i class="fas fa-user"></i>
+                  Meu Perfil
+                </a>
+                <a href="#" class="dropdown-item">
+                  <i class="fas fa-cog"></i>
+                  Configurações
+                </a>
+                <div class="dropdown-divider"></div>
+                <a href="#" class="dropdown-item logout">
+                  <i class="fas fa-sign-out-alt"></i>
+                  Terminar Sessão
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="container">
+      <div class="page-header">
+        <div class="page-title">
+          <h1>Relatório de Análise Fiscal</h1>
+          <p>NIF: 517466735 - Tech Solutions Lda</p>
+        </div>
+        <div class="header-actions">
+          <a href="detalhes.html" class="back-button">
+            <i class="fas fa-arrow-left"></i>
+            Voltar aos Detalhes
+          </a>
+
+          <button class="action-button save-button" id="save-report">
+            <i class="fas fa-save"></i>
+            Guardar
+          </button>
+          <button class="action-button print-button" id="print-button">
+            <i class="fas fa-print"></i>
+            Imprimir
+          </button>
+        </div>
+      </div>
+
+      <div class="report-container">
+        <div class="report-header">
+          <h2>Relatório de Análise Fiscal</h2>
+          <div class="report-meta">
+            <div><strong>NIF:</strong> 517466735</div>
+            <div><strong>Contribuinte:</strong> Tech Solutions Lda</div>
+            <div>
+              <strong>Data do Relatório:</strong>
+              <span id="report-date">20/05/2024</span>
+            </div>
+            <div><strong>Inspetor Responsável:</strong> Antónia Silva</div>
+          </div>
+        </div>
+
+        <div class="report-content">
+          <button class="add-section-btn" id="add-section-btn">
+            <i class="fas fa-plus"></i>
+            Adicionar Nova Secção
+          </button>
+
+          <div class="report-section" id="section-resumo">
+            <h3>
+              Resumo Executivo
+              <div class="section-actions">
+                <button class="section-action-btn edit-section-btn">
+                  <i class="fas fa-edit"></i> Editar
+                </button>
+                <button class="section-action-btn delete-section-btn">
+                  <i class="fas fa-trash"></i> Remover
+                </button>
+              </div>
+            </h3>
+            <div class="template-content">
+              <div class="formatting-toolbar" style="display: none">
+                <button class="format-btn" data-command="bold">
+                  <i class="fas fa-bold"></i>
+                </button>
+                <button class="format-btn" data-command="italic">
+                  <i class="fas fa-italic"></i>
+                </button>
+                <button class="format-btn" data-command="underline">
+                  <i class="fas fa-underline"></i>
+                </button>
+                <button class="format-btn" data-command="insertUnorderedList">
+                  <i class="fas fa-list-ul"></i>
+                </button>
+                <button class="format-btn" data-command="insertOrderedList">
+                  <i class="fas fa-list-ol"></i>
+                </button>
+              </div>
+              <div class="editable-content" contenteditable="false">
+                <p>
+                  Este relatório apresenta uma análise detalhada da situação
+                  fiscal do contribuinte
+                  <strong>Tech Solutions Lda</strong> (NIF: 517466735), com base
+                  nos dados disponíveis no sistema até a data de
+                  <strong id="current-date">20/05/2024</strong>.
+                </p>
+
+                <p>A análise focou-se nos seguintes aspetos principais:</p>
+                <ul>
+                  <li>Conformidade das declarações fiscais entregues</li>
+                  <li>Regularidade das situações patrimoniais declaradas</li>
+                  <li>Análise de operações intracomunitárias</li>
+                  <li>Verificação de retenções na fonte</li>
+                  <li>Avaliação de eventuais inconsistências detetadas</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="report-section" id="section-achados">
+            <h3>
+              Principais Achados
+              <div class="section-actions">
+                <button class="section-action-btn edit-section-btn">
+                  <i class="fas fa-edit"></i> Editar
+                </button>
+                <button class="section-action-btn delete-section-btn">
+                  <i class="fas fa-trash"></i> Remover
+                </button>
+              </div>
+            </h3>
+            <div class="template-content">
+              <div class="formatting-toolbar" style="display: none">
+                <button class="format-btn" data-command="bold">
+                  <i class="fas fa-bold"></i>
+                </button>
+                <button class="format-btn" data-command="italic">
+                  <i class="fas fa-italic"></i>
+                </button>
+                <button class="format-btn" data-command="underline">
+                  <i class="fas fa-underline"></i>
+                </button>
+                <button class="format-btn" data-command="insertUnorderedList">
+                  <i class="fas fa-list-ul"></i>
+                </button>
+                <button class="format-btn" data-command="insertOrderedList">
+                  <i class="fas fa-list-ol"></i>
+                </button>
+              </div>
+              <div class="editable-content" contenteditable="false">
+                <p>
+                  <strong>1. Situação Patrimonial:</strong> O contribuinte
+                  declarou 3 imóveis no valor total de € 570.000 e 2 veículos no
+                  valor de € 25.000. Foi identificado um aumento de 5% nas
+                  rendas desde 2023.
+                </p>
+
+                <p>
+                  <strong>2. Dívidas Fiscais:</strong> Existe uma dívida fiscal
+                  ativa no valor de € 12.450, com € 8.750 em situação de
+                  vencimento. Recomenda-se verificação urgente do regular
+                  pagamento.
+                </p>
+
+                <p>
+                  <strong>3. Declarações:</strong> Foram analisadas 24
+                  declarações no total, com uma taxa de conformidade de 92%.
+                  Oito declarações encontram-se em análise.
+                </p>
+
+                <p>
+                  <strong>4. Operações Intracomunitárias:</strong> Foram
+                  registadas 15 operações no valor total de € 85.250 em 2024,
+                  representando um aumento de 12% face ao período homólogo.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="report-section" id="section-observacoes">
+            <h3>
+              Observações e Notas
+              <div class="section-actions">
+                <button class="section-action-btn edit-section-btn">
+                  <i class="fas fa-edit"></i> Editar
+                </button>
+                <button class="section-action-btn delete-section-btn">
+                  <i class="fas fa-trash"></i> Remover
+                </button>
+              </div>
+            </h3>
+            <div class="notes-content">
+              <h4>Notas do Inspetor:</h4>
+              <div class="note-item">
+                <div class="note-date">15/05/2024 14:30</div>
+                <div class="note-text">
+                  Contactar contribuinte para esclarecimento sobre deduções de
+                  IVA no automóvel.
+                </div>
+              </div>
+              <div class="note-item">
+                <div class="note-date">10/05/2024 09:15</div>
+                <div class="note-text">
+                  Verificar documentação de suporte às operações
+                  intracomunitárias.
+                </div>
+              </div>
+              <div class="note-item">
+                <div class="note-date">05/05/2024 16:20</div>
+                <div class="note-text">
+                  Solicitar comprovativos de despesas de representação acima de
+                  € 2.500.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="report-section" id="section-recomendacoes">
+            <h3>
+              Recomendações
+              <div class="section-actions">
+                <button class="section-action-btn edit-section-btn">
+                  <i class="fas fa-edit"></i> Editar
+                </button>
+                <button class="section-action-btn delete-section-btn">
+                  <i class="fas fa-trash"></i> Remover
+                </button>
+              </div>
+            </h3>
+            <div class="template-content">
+              <div class="formatting-toolbar" style="display: none">
+                <button class="format-btn" data-command="bold">
+                  <i class="fas fa-bold"></i>
+                </button>
+                <button class="format-btn" data-command="italic">
+                  <i class="fas fa-italic"></i>
+                </button>
+                <button class="format-btn" data-command="underline">
+                  <i class="fas fa-underline"></i>
+                </button>
+                <button class="format-btn" data-command="insertUnorderedList">
+                  <i class="fas fa-list-ul"></i>
+                </button>
+                <button class="format-btn" data-command="insertOrderedList">
+                  <i class="fas fa-list-ol"></i>
+                </button>
+              </div>
+              <div class="editable-content" contenteditable="false">
+                <p>Com base na análise realizada, recomenda-se:</p>
+                <ul>
+                  <li>
+                    <strong>Contacto urgente</strong> com o contribuinte para
+                    regularização da dívida vencida
+                  </li>
+                  <li>
+                    <strong>Verificação documental</strong> das operações
+                    intracomunitárias declaradas
+                  </li>
+                  <li>
+                    <strong>Análise complementar</strong> das deduções de IVA em
+                    bens de investimento
+                  </li>
+                  <li>
+                    <strong>Acompanhamento próximo</strong> das declarações em
+                    análise
+                  </li>
+                  <li>
+                    <strong>Agendamento de reunião</strong> para clarificação de
+                    eventuais inconsistências
+                  </li>
+                </ul>
+
+                <p>
+                  O contribuinte demonstra geral conformidade com as obrigações
+                  fiscais, sendo necessários alguns ajustes pontuais para total
+                  regularização da sua situação.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="report-section additional-content" id="section-adicional">
+            <h3>
+              Conteúdo Adicional
+              <div class="section-actions">
+                <button class="section-action-btn edit-section-btn">
+                  <i class="fas fa-edit"></i> Editar
+                </button>
+                <button class="section-action-btn delete-section-btn">
+                  <i class="fas fa-trash"></i> Remover
+                </button>
+              </div>
+            </h3>
+            <textarea
+              class="additional-textarea"
+              placeholder="Adicione aqui qualquer informação adicional relevante para o relatório..."
+            ></textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="save-status" id="save-status">
+      <i class="fas fa-check-circle"></i> Alterações guardadas com sucesso!
+    </div>
+
+    <footer>
+      <div class="container">
+        <p>© 2024 Autoridade Tributária. Todos os direitos reservados.</p>
+      </div>
+    </footer>
+
+    <script>
+      // Configurar data atual
+      const currentDate = new Date();
+      const formattedDate = currentDate.toLocaleDateString("pt-PT");
+      document.getElementById("current-date").textContent = formattedDate;
+      document.getElementById("report-date").textContent = formattedDate;
+
+      // Elementos globais
+      let editMode = false;
+      const editModeToggle = document.getElementById("edit-mode-toggle");
+      const saveReportBtn = document.getElementById("save-report");
+      const printButton = document.getElementById("print-button");
+      const saveStatus = document.getElementById("save-status");
+      const addSectionBtn = document.getElementById("add-section-btn");
+
+      // Alternar modo de edição
+      editModeToggle.addEventListener("click", function () {
+        editMode = !editMode;
+        const sections = document.querySelectorAll(".report-section");
+        const editableContents = document.querySelectorAll(".editable-content");
+        const additionalTextareas = document.querySelectorAll(
+          ".additional-textarea"
+        );
+        const sectionActions = document.querySelectorAll(".section-actions");
+
+        if (editMode) {
+          // Ativar modo de edição
+          editModeToggle.innerHTML =
+            '<i class="fas fa-times"></i> Sair do Modo Edição';
+          editModeToggle.style.backgroundColor = "#6c757d";
+
+          // Ativar edição de conteúdo
+          editableContents.forEach((content) => {
+            content.setAttribute("contenteditable", "true");
+          });
+
+          additionalTextareas.forEach((textarea) => {
+            textarea.disabled = false;
+          });
+
+          // Mostrar botões de ação das secções
+          sectionActions.forEach((actions) => {
+            actions.style.display = "flex";
+          });
+
+          // Mostrar botão de adicionar secção
+          addSectionBtn.style.display = "flex";
+        } else {
+          // Desativar modo de edição
+          editModeToggle.innerHTML = '<i class="fas fa-edit"></i> Modo Edição';
+          editModeToggle.style.backgroundColor = "";
+
+          // Desativar edição de conteúdo
+          editableContents.forEach((content) => {
+            content.setAttribute("contenteditable", "false");
+          });
+
+          additionalTextareas.forEach((textarea) => {
+            textarea.disabled = true;
+          });
+
+          // Ocultar botões de ação das secções
+          sectionActions.forEach((actions) => {
+            actions.style.display = "none";
+          });
+
+          // Ocultar botão de adicionar secção
+          addSectionBtn.style.display = "none";
+
+          // Ocultar barras de formatação
+          document
+            .querySelectorAll(".formatting-toolbar")
+            .forEach((toolbar) => {
+              toolbar.style.display = "none";
+            });
+
+          // Remover estado de edição das secções
+          sections.forEach((section) => {
+            section.classList.remove("editing");
+          });
+        }
+      });
+
+      // Salvar relatório
+      saveReportBtn.addEventListener("click", function () {
+        // Simular salvamento
+        saveStatus.classList.add("show");
+
+        setTimeout(() => {
+          saveStatus.classList.remove("show");
+        }, 3000);
+      });
+
+      // Imprimir relatório
+      printButton.addEventListener("click", function () {
+        window.print();
+      });
+
+      // Adicionar nova secção
+      addSectionBtn.addEventListener("click", function () {
+        const sectionTitle = prompt(
+          "Digite o título da nova secção:",
+          "Nova Secção"
+        );
+
+        if (sectionTitle) {
+          const sectionId = "section-" + Date.now();
+          const newSection = document.createElement("div");
+          newSection.className = "report-section";
+          newSection.id = sectionId;
+
+          newSection.innerHTML = `
+            <h3>
+              ${sectionTitle}
+              <div class="section-actions">
+                <button class="section-action-btn edit-section-btn">
+                  <i class="fas fa-edit"></i> Editar
+                </button>
+                <button class="section-action-btn delete-section-btn">
+                  <i class="fas fa-trash"></i> Remover
+                </button>
+              </div>
+            </h3>
+            <div class="template-content">
+              <div class="formatting-toolbar" style="display: none">
+                <button class="format-btn" data-command="bold">
+                  <i class="fas fa-bold"></i>
+                </button>
+                <button class="format-btn" data-command="italic">
+                  <i class="fas fa-italic"></i>
+                </button>
+                <button class="format-btn" data-command="underline">
+                  <i class="fas fa-underline"></i>
+                </button>
+                <button class="format-btn" data-command="insertUnorderedList">
+                  <i class="fas fa-list-ul"></i>
+                </button>
+                <button class="format-btn" data-command="insertOrderedList">
+                  <i class="fas fa-list-ol"></i>
+                </button>
+              </div>
+              <div class="editable-content" contenteditable="false">
+                <p>Digite o conteúdo desta secção aqui...</p>
+              </div>
+            </div>
+          `;
+
+          // Inserir antes da última secção (conteúdo adicional)
+          const lastSection = document.querySelector(".additional-content");
+          lastSection.parentNode.insertBefore(newSection, lastSection);
+
+          // Adicionar event listeners aos novos botões
+          addSectionEventListeners(newSection);
+        }
+      });
+
+      // Função para adicionar event listeners a uma secção
+      function addSectionEventListeners(section) {
+        const editBtn = section.querySelector(".edit-section-btn");
+        const deleteBtn = section.querySelector(".delete-section-btn");
+        const editableContent = section.querySelector(".editable-content");
+        const formattingToolbar = section.querySelector(".formatting-toolbar");
+        const formatBtns = section.querySelectorAll(".format-btn");
+
+        // Editar secção
+        editBtn.addEventListener("click", function () {
+          section.classList.toggle("editing");
+          const isEditing = section.classList.contains("editing");
+
+          if (isEditing) {
+            formattingToolbar.style.display = "flex";
+            editableContent.focus();
+          } else {
+            formattingToolbar.style.display = "none";
+          }
+        });
+
+        // Remover secção
+        deleteBtn.addEventListener("click", function () {
+          if (confirm("Tem certeza que deseja remover esta secção?")) {
+            section.remove();
+          }
+        });
+
+        // Formatação de texto
+        formatBtns.forEach((btn) => {
+          btn.addEventListener("click", function () {
+            const command = this.getAttribute("data-command");
+            document.execCommand(command, false, null);
+            editableContent.focus();
+          });
+        });
+      }
+
+      // Adicionar event listeners às secções existentes
+      document.querySelectorAll(".report-section").forEach((section) => {
+        addSectionEventListeners(section);
+      });
+
+      // Dropdown de notificações
+      const notificationDropdown = document.querySelector(
+        ".notification-dropdown"
+      );
+      const notificationTrigger = document.querySelector(
+        ".notification-trigger"
+      );
+
+      notificationTrigger.addEventListener("click", function (e) {
+        e.stopPropagation();
+        notificationDropdown.classList.toggle("active");
+      });
+
+      // Dropdown de utilizador
+      const userDropdown = document.querySelector(".user-dropdown");
+      const userTrigger = document.querySelector(".user-trigger");
+
+      userTrigger.addEventListener("click", function (e) {
+        e.stopPropagation();
+        userDropdown.classList.toggle("active");
+      });
+
+      // Fechar dropdowns ao clicar fora
+      document.addEventListener("click", function () {
+        notificationDropdown.classList.remove("active");
+        userDropdown.classList.remove("active");
+      });
+
+      // Prevenir fechamento ao clicar dentro dos dropdowns
+      document
+        .querySelectorAll(".notification-menu, .dropdown-menu")
+        .forEach((menu) => {
+          menu.addEventListener("click", function (e) {
+            e.stopPropagation();
+          });
+        });
+    </script>
+  </body>
+</html>
